@@ -2,6 +2,8 @@ require('./config/config');
 require('./models/db');
 require('./config/passportConfig');
 
+require('./models/profilecategory.model');
+
 const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
