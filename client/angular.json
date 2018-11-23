@@ -32,7 +32,11 @@
             "scripts": [
               "src/styles/scripts/jquery-1.9.1.min.js",
               "src/styles/scripts/jquery-ui-1.10.1.custom.min.js",
-              "src/styles/bootstrap/js/bootstrap.min.js"
+              "src/styles/bootstrap/js/bootstrap.min.js",
+              "src/styles/scripts/flot/jquery.flot.js",
+              "src/styles/scripts/flot/jquery.flot.resize.js",
+              "src/styles/scripts/datatables/jquery.dataTables.js",
+              "src/styles/scripts/common.js"
             ]
           },
           "configurations": {

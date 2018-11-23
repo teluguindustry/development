@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../shared/user.service';
 import { Router } from "@angular/router";
 
+
 @Component({
-  selector: 'app-userprofile',
-  templateUrl: './userprofile.component.html',
-  styleUrls: ['./userprofile.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class UserprofileComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   userDetails;
   constructor(private userService: UserService, private router: Router) { }
@@ -25,7 +26,7 @@ export class UserprofileComponent implements OnInit {
 
   onLogout(){
     this.userService.deleteToken();
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/admin']); 
   }
 
 }

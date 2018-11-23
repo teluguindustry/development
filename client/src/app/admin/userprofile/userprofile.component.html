@@ -1,5 +1,38 @@
-<p *ngIf="userDetails"> 
-  {{userDetails.fullName}}
-  {{userDetails.email}}
-  <input type="button" (click)="onLogout()" value="Logout"/>
-</p>
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head">
+                            <h3>Profile</h3>
+                        </div>
+                        <div class="module-body" *ngIf="userDetails">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <td>{{userDetails.fullName}}</td>
+                                    <td>{{userDetails.email}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer>

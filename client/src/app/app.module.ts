@@ -16,6 +16,13 @@ import { UserService } from './shared/user.service';
 
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { HeaderComponent } from './admin/header/header.component';
+import { FooterComponent } from './admin/footer/footer.component';
+import { LeftnavComponent } from './admin/leftnav/leftnav.component';
+import { LogoutComponent } from './admin/logout/logout.component';
+import { CelebritydataComponent } from './admin/celebrityprofile/celebritydata/celebritydata.component';
+import { CelebrityaddComponent } from './admin/celebrityprofile/celebrityadd/celebrityadd.component';
+import { CelebrityeditComponent } from './admin/celebrityprofile/celebrityedit/celebrityedit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,14 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     LoginComponent,
     SingupComponent,
     UserprofileComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    LeftnavComponent,
+    LogoutComponent,
+    CelebritydataComponent,
+    CelebrityaddComponent,
+    CelebrityeditComponent
   ],
   imports: [
     BrowserModule,

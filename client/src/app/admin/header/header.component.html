@@ -1,0 +1,25 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+      <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+              <i class="icon-reorder shaded"></i></a><a class="brand" href="#">Telugu Industry</a>
+          <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav pull-right">
+                  <li *ngIf="userDetails"><a href="#">Welcome {{userDetails.fullName}}</a></li>
+                  <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <img src="styles/images/user.png" class="nav-avatar" />
+                      <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a routerLink="/getUserProfile">Your Profile</a></li>
+                          <!-- <li><a href="#">Edit Profile</a></li> -->
+                          <li class="divider"></li>
+                          <li><input type="button" (click)="onLogout()" value="Logout"/></li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.nav-collapse -->
+      </div>
+  </div>
+  <!-- /navbar-inner -->
+</div>
