@@ -5,6 +5,7 @@ require('./config/passportConfig');
 require('./models/profilecategory.model');
 require('./models/celebrityprofile.model');
 require('./models/movies.model');
+require('./models/news.model');
 
 const express = require('express');
 const bodyparser = require('body-parser');

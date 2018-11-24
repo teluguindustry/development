@@ -5,6 +5,7 @@ const ctrlUser = require('../controllers/user.controller');
 const ctrlProfileCategory = require('../controllers/profilecategory.controller');
 const ctrlCelebrityProfile = require('../controllers/celebrityprofile.controller');
 const ctrlMovies = require('../controllers/movies.controller');
+const ctrlNews = require('../controllers/news.controller');
 
 
 const jwtHelper = require('../config/jwtHelper');
@@ -31,6 +32,12 @@ router.post('/createMovie', ctrlMovies.saveData);
 router.get('/getMovies', ctrlMovies.getMovies);
 router.get('/getMovie/:id', ctrlMovies.getMovie);
 router.put('/updateMovie/:id', ctrlMovies.updateMovie);
+
+//News
+router.post('/createNews', ctrlNews.saveData);
+router.get('/getAllNews', ctrlNews.getAllNews);
+router.get('/getNews/:id', ctrlNews.getNews);
+router.put('/updateNews/:id', ctrlNews.updateNews);
 
 
 module.exports = router;
