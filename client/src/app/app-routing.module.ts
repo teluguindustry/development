@@ -6,6 +6,8 @@ import { LoginComponent } from './admin/login/login.component';
 import { UserprofileComponent } from "./admin/userprofile/userprofile.component";
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { CelebritydataComponent } from './admin/celebrityprofile/celebritydata/celebritydata.component';
+import { CelebrityaddComponent } from './admin/celebrityprofile/celebrityadd/celebrityadd.component';
+import { CelebrityeditComponent } from './admin/celebrityprofile/celebrityedit/celebrityedit.component';
 
 
 import { AuthGuard } from './auth/auth.guard';
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   { path: 'getUserProfile', component: UserprofileComponent, canActivate:[AuthGuard]},
   { path: 'logout', component: UserprofileComponent, canActivate:[AuthGuard]},
-  { path: 'celebrity', component: CelebritydataComponent, canActivate:[AuthGuard]}
+  { path: 'celebrity', component: CelebritydataComponent, canActivate:[AuthGuard]},
+  { path: 'addCelebrity', component: CelebrityaddComponent, canActivate:[AuthGuard]},
+  { path: 'editCelebrity', component: CelebrityeditComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
