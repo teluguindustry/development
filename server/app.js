@@ -3,6 +3,8 @@ require('./models/db');
 require('./config/passportConfig');
 
 require('./models/profilecategory.model');
+require('./models/celebrityprofile.model');
+require('./models/movies.model');
 
 const express = require('express');
 const bodyparser = require('body-parser');
