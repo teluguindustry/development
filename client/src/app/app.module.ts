@@ -23,6 +23,9 @@ import { LogoutComponent } from './admin/logout/logout.component';
 import { CelebritydataComponent } from './admin/celebrityprofile/celebritydata/celebritydata.component';
 import { CelebrityaddComponent } from './admin/celebrityprofile/celebrityadd/celebrityadd.component';
 import { CelebrityeditComponent } from './admin/celebrityprofile/celebrityedit/celebrityedit.component';
+import { AddcategoryComponent } from './admin/profilecategory/addcategory/addcategory.component';
+import { EditcategoryComponent } from './admin/profilecategory/editcategory/editcategory.component';
+import { CategorydataComponent } from './admin/profilecategory/categorydata/categorydata.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { CelebrityeditComponent } from './admin/celebrityprofile/celebrityedit/c
     LogoutComponent,
     CelebritydataComponent,
     CelebrityaddComponent,
-    CelebrityeditComponent
+    CelebrityeditComponent,
+    AddcategoryComponent,
+    EditcategoryComponent,
+    CategorydataComponent
   ],
   imports: [
     BrowserModule,

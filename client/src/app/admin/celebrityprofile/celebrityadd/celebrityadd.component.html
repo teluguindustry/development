@@ -34,6 +34,13 @@
                               </div>
           
                               <div class="control-group">
+                                <label class="control-label" for="basicinput">Profile Pic</label>
+                                <div class="controls">
+                                  <input type="file" name="profilePic" class="span8" #profilePic="ngModel" [(ngModel)]="model.profilePic" required>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
                                 <div class="controls">
                                   <button type="submit" class="btn">Submit Form</button>
                                 </div>

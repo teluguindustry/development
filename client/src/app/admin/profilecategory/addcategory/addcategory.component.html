@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head">
+                          <h3>Add Category</h3>
+                        </div>
+                        <div class="module-body">
+                            <br />
+                            <form class="form-horizontal row-fluid" #categoryAddForm="ngForm" (ngSubmit)="categoryAddForm.valid && onSubmit(categoryAddForm)">
+                              <div class="control-group">
+                                <label class="control-label" for="basicinput">Category Name</label>
+                                <div class="controls">
+                                  <input type="text" name="categoryName" class="span8" #categoryName="ngModel" [(ngModel)]="model.categoryName" required>
+                                </div>
+                              </div>          
+                              <div class="control-group">
+                                <div class="controls">
+                                  <button type="submit" class="btn">Submit Form</button>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                      </div><!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer>

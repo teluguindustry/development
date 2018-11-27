@@ -9,30 +9,26 @@
                     <div class="module">
                         <div class="module-head clearfix">
                           <div class="pull-left">
-                              <h3 style="padding-top: 7px;">Celebrity Profiles</h3>
+                              <h3 style="padding-top: 7px;">Categories</h3>
                           </div>
                           <div class="pull-right">
-                              <a routerLink="/addCelebrity" class="btn btn-primary">Add Celebrity</a>
+                              <a routerLink="/addCategory" class="btn btn-primary">Add Category</a>
                           </div>
                         </div>
                         <div class="module-body table">
                           <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped display" width="100%">
                             <thead>
                               <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Description</th>
+                                <th>Category Name</th>
                                 <th>Settings</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr class="odd gradeX" *ngFor="let cbProfile of celebrityProfileData">
-                                <td> {{cbProfile.firstName}} </td>
-                                <td>{{cbProfile.lastName}}</td>
-                                <td>{{cbProfile.biodata}}</td>
+                              <tr class="odd gradeX" *ngFor="let cdata of categoryData">
+                                <td> {{cdata.categoryName}} </td>
                                 <td>
-                                    <a routerLink="/editCelebrity/{{cbProfile._id}}" title="Edit Celebrity"><i class="icon-edit"></i></a>
-                                    <a href="#" title="Delete Celebrity"><i class="icon-edit"></i></a>
+                                    <a routerLink="/editCategory/{{cdata._id}}" title="Edit Category"><i class="icon-edit"></i></a>
+                                    <a href="#" title="Delete Category"><i class="icon-edit"></i></a>
                                 </td>
                               </tr>
                             </tbody>
