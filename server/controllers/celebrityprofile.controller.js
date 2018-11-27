@@ -35,7 +35,7 @@ module.exports.getProfiles = (req, res, next) =>{
     );
 }
 
-module.exports.getProfile = (req, res) =>{
+module.exports.getProfile = (req, res, next) =>{
     CelebrityProfile.findById(req.params.id, function (err, celebrityprofile) {
         if (err)
             return res.status(404).json({ status: false, error: next(err) });

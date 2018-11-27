@@ -12,24 +12,26 @@
                               <h3 style="padding-top: 7px;">Celebrity Profiles</h3>
                           </div>
                           <div class="pull-right">
-                              <a routerLink="/addcelebrity" class="btn btn-primary">Add Celebrity</a>
+                              <a routerLink="/addCelebrity" class="btn btn-primary">Add Celebrity</a>
                           </div>
                         </div>
                         <div class="module-body table">
                           <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
                             <thead>
                               <tr>
-                                <th>Celebrity Name</th>
-                                <th>Category</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Description</th>
                                 <th>Settings</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr class="odd gradeX">
-                                <td>Trident</td>
-                                <td>Internet</td>
+                              <tr class="odd gradeX" *ngFor="let cbProfile of celebrityProfileData">
+                                <td> {{cbProfile.firstName}} </td>
+                                <td>{{cbProfile.lastName}}</td>
+                                <td>{{cbProfile.biodata}}</td>
                                 <td>
-                                    <a routerLink="/editCelebrity" title="Edit Celebrity"><i class="icon-edit"></i></a>
+                                    <a routerLink="/editCelebrity/{{cbProfile._id}}" title="Edit Celebrity"><i class="icon-edit"></i></a>
                                     <a href="#" title="Delete Celebrity"><i class="icon-edit"></i></a>
                                 </td>
                               </tr>
@@ -45,4 +47,4 @@
     </div>
     <!--/.container-->
 </div>
-<app-footer></app-footer>
+<app-footer></app-footer> 

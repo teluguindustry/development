@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'logout', component: UserprofileComponent, canActivate:[AuthGuard]},
   { path: 'celebrity', component: CelebritydataComponent, canActivate:[AuthGuard]},
   { path: 'addCelebrity', component: CelebrityaddComponent, canActivate:[AuthGuard]},
-  { path: 'editCelebrity', component: CelebrityeditComponent, canActivate:[AuthGuard]}
+  { path: 'editCelebrity/:id', component: CelebrityeditComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

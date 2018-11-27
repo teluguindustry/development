@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CelebrityprofileService } from '../../../shared/celebrityprofile/celebrityprofile.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-celebritydata',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CelebritydataComponent implements OnInit {
 
-  constructor() { }
+  celebrityProfileData;
+  constructor(private celebrityprofileService: CelebrityprofileService, private router: Router) { }
 
   ngOnInit() {
+    this.celebrityprofileService.getCelebrityProfiles().subscribe(
+      res => {
+        this.celebrityProfileData = res['celebrityProfile'];
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
-}
+}  
+ 
