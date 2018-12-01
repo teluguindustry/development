@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head clearfix">
+                          <div class="pull-left">
+                              <h3 style="padding-top: 7px;">Movies</h3>
+                          </div>
+                          <div class="pull-right">
+                              <a routerLink="/addMovie" class="btn btn-primary">Add Movie</a>
+                          </div>
+                        </div>
+                        <div class="module-body table">
+                          <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped display" width="100%">
+                            <thead>
+                              <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Description</th>
+                                <th>Settings</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="odd gradeX" *ngFor="let cbProfile of celebrityProfileData">
+                                <td> {{cbProfile.firstName}} </td>
+                                <td>{{cbProfile.lastName}}</td>
+                                <td>{{cbProfile.biodata}}</td>
+                                <td>
+                                    <a routerLink="/editCelebrity/{{cbProfile._id}}" title="Edit Celebrity"><i class="icon-edit"></i></a>
+                                    <a href="#" title="Delete Celebrity"><i class="icon-edit"></i></a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div><!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer> 

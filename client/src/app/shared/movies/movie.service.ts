@@ -3,21 +3,19 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { environment } from "../../../environments/environment";
 
-import { CelebrityProfile } from './CelebrityProfile.model';
+import { Movies } from "./movies.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CelebrityprofileService {
+export class MovieService {
 
-  selectedProfile: CelebrityProfile = {
-    firstName: '',
-    lastName: '',
-    profilePic: null,
-    height: '',
-    biodata: '',
-    education: '',
-    spouse: ''
+  movie: Movies = {
+    name: '',
+    poster: '',
+    description: '',
+    language: null,
+    releasedate: ''
   };
 
 
@@ -31,26 +29,26 @@ export class CelebrityprofileService {
 
   constructor(private http: HttpClient) { }
 
-  getCelebrityProfiles() {
-    return this.http.get(environment.apiBaseUrl + '/getProfiles');
+  getMovies() {
+    return this.http.get(environment.apiBaseUrl + '/getMovies');
   }
 
-  editCelebrityProfile(id) {
-    return this.http.get(environment.apiBaseUrl + '/getProfile/'+id);
+  editMovie(id) {
+    return this.http.get(environment.apiBaseUrl + '/getMovie/'+id);
   }
 
-  addCelebrityProfile(celebrityDetails, fileToUpload: File) {
+  addMovie(movieDetails, fileToUpload: File) {
     // const formData = new FormData();
     // formData.append('firstName', celebrityDetails.fileName);
     // formData.append('lastName', celebrityDetails.lastName);
     // formData.append('biodata', celebrityDetails.biodata);
     // formData.append('profilePic', fileToUpload, fileToUpload.name);
-    return this.http.post(`${this.uri}/createProfile`, celebrityDetails);
+    return this.http.post(`${this.uri}/createMovie`, movieDetails);
   }
 
-  updateCelebrityProfile(celebrityDetails,id) {
-    return this.http.put(`${this.uri}/updateProfile/${id}`, celebrityDetails);
+  updateMovie(movieDetails,id) {
+    return this.http.put(`${this.uri}/updateMovie/${id}`, movieDetails);
   }
-
 }
-      
+
+

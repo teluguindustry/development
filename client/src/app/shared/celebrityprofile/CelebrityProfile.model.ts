@@ -1,7 +1,7 @@
 export class CelebrityProfile {
     firstName: String;
     lastName: String;
-    profilePic: String;
+    profilePic: File;
     height: String;
     biodata: String;
     education: String;

@@ -3,6 +3,7 @@ import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { CelebrityprofileService } from "../../../shared/celebrityprofile/celebrityprofile.service";
+import { CategoryService } from "../../../shared/category/category.service";
 
 @Component({
   selector: 'app-celebrityadd',
@@ -11,12 +12,15 @@ import { CelebrityprofileService } from "../../../shared/celebrityprofile/celebr
 })
 export class CelebrityaddComponent implements OnInit {
 
-  constructor(private profileService: CelebrityprofileService, private router: Router) { }
+  imageUrl: string = "/assets/img/default-image.png";
+  fileToUpload: File = null;
+
+  constructor(private profileService: CelebrityprofileService, private router: Router, private cs: CategoryService) { }
 
   model = {
     firstName : '',
     lastName: '',
-    profilePic: '',
+    profilePic: null,
     height: '',
     biodata: '',
     education: '',
@@ -24,18 +28,38 @@ export class CelebrityaddComponent implements OnInit {
   };
 
   serverErrorMessages: string;
+  categories;
 
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+
+    //Show image preview
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
+  
   ngOnInit() {
+    this.cs.getCategories().subscribe(
+      res => {
+        this.categories = res['profileCategory'];
+      },
+      err => {
+        this.serverErrorMessages = err.error.message;
+      }
+    );
   }
 
   onSubmit(form : NgForm){
-    this.profileService.addCelebrityProfile(form.value).subscribe(
+    this.profileService.addCelebrityProfile(form.value, this.fileToUpload).subscribe(
       res => {
         this.router.navigateByUrl('/celebrity');
       },
       err => {
         this.serverErrorMessages = err.error.message;
-        
       }
     );
   }

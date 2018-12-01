@@ -20,7 +20,7 @@ module.exports.saveData = (req, res, next) => {
               gallery.caption = req.body.caption;
               gallery.save((err, doc) => {
                 if (!err)
-                    return res.status(200).json({ status: true, message:"Gallery Created", movie : doc });
+                    return res.status(200).json({ status: true, message:"Gallery Created", gallery : doc });
                 else
                     return res.status(404).json({ status: false, error: next(err) });
             });
