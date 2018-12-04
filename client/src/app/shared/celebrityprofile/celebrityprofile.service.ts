@@ -11,13 +11,16 @@ import { CelebrityProfile } from './CelebrityProfile.model';
 export class CelebrityprofileService {
 
   selectedProfile: CelebrityProfile = {
+    id:'',
     firstName: '',
     lastName: '',
     profilePic: null,
     height: '',
     biodata: '',
     education: '',
-    spouse: ''
+    spouse: '',
+    category: null,
+    dateOfBirth: ''    
   };
 
 
@@ -29,7 +32,13 @@ export class CelebrityprofileService {
     headers: new HttpHeaders({ "Content-Type": "multipart/form-data", 'Accept': 'application/json' })
   }
 
-  constructor(private http: HttpClient) { }
+  fileUploadHeaders(){
+    headers: new HttpHeaders({ "Content-Type": "multipart/form-data", 'Accept': 'application/json' })
+  }
+
+  constructor(private http: HttpClient) {
+    this.fileUploadHeaders();
+   }
 
   getCelebrityProfiles() {
     return this.http.get(environment.apiBaseUrl + '/getProfiles');
@@ -40,16 +49,30 @@ export class CelebrityprofileService {
   }
 
   addCelebrityProfile(celebrityDetails, fileToUpload: File) {
-    // const formData = new FormData();
-    // formData.append('firstName', celebrityDetails.fileName);
-    // formData.append('lastName', celebrityDetails.lastName);
-    // formData.append('biodata', celebrityDetails.biodata);
-    // formData.append('profilePic', fileToUpload, fileToUpload.name);
-    return this.http.post(`${this.uri}/createProfile`, celebrityDetails);
+    const formData = new FormData();
+    formData.append('firstName', celebrityDetails.firstName);
+    formData.append('lastName', celebrityDetails.lastName);
+    formData.append('biodata', celebrityDetails.biodata);
+    formData.append('category', celebrityDetails.category);
+    formData.append('education', celebrityDetails.education);
+    formData.append('dateOfBirth', celebrityDetails.dateOfBirth);
+    formData.append('height', celebrityDetails.height);
+    formData.append('profilePic', fileToUpload, fileToUpload.name);
+    return this.http.post(`${this.uri}/createProfile`, formData);
   }
 
-  updateCelebrityProfile(celebrityDetails,id) {
-    return this.http.put(`${this.uri}/updateProfile/${id}`, celebrityDetails);
+  updateCelebrityProfile(celebrityDetails,fileToUpload: File) {
+    const formData = new FormData();
+    formData.append('firstName', celebrityDetails.firstName);
+    formData.append('lastName', celebrityDetails.lastName);
+    formData.append('biodata', celebrityDetails.biodata);
+    formData.append('category', celebrityDetails.category);
+    formData.append('education', celebrityDetails.education);
+    formData.append('dateOfBirth', celebrityDetails.dateOfBirth);
+    formData.append('height', celebrityDetails.height);
+    formData.append('profilePic', fileToUpload, fileToUpload.name);
+    formData.append('id', celebrityDetails.id);
+    return this.http.post(`${this.uri}/updateProfile`, formData);
   }
 
 }

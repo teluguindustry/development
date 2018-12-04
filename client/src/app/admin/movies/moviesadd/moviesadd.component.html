@@ -7,36 +7,39 @@
             <div class="span9">
                 <div class="content">
                     <div class="module">
-                        <div class="module-head clearfix">
-                          <div class="pull-left">
-                              <h3 style="padding-top: 7px;">Movies</h3>
-                          </div>
-                          <div class="pull-right">
-                              <a routerLink="/addMovie" class="btn btn-primary">Add Movie</a>
-                          </div>
+                        <div class="module-head">
+                          <h3>Add Movie</h3>
                         </div>
-                        <div class="module-body table">
-                          <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped display" width="100%">
-                            <thead>
-                              <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Description</th>
-                                <th>Settings</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr class="odd gradeX" *ngFor="let cbProfile of celebrityProfileData">
-                                <td> {{cbProfile.firstName}} </td>
-                                <td>{{cbProfile.lastName}}</td>
-                                <td>{{cbProfile.biodata}}</td>
-                                <td>
-                                    <a routerLink="/editCelebrity/{{cbProfile._id}}" title="Edit Celebrity"><i class="icon-edit"></i></a>
-                                    <a href="#" title="Delete Celebrity"><i class="icon-edit"></i></a>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                        <div class="module-body">
+                            <br />
+                            <form class="form-horizontal row-fluid" #movieAddForm="ngForm" (ngSubmit)="movieAddForm.valid && onSubmit(movieAddForm)">
+                              <div class="control-group">
+                                <label class="control-label" for="basicinput">Movie Name</label>
+                                <div class="controls">
+                                  <input type="text" name="name" class="span8" #name="ngModel" [(ngModel)]="model.name" required>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label" for="basicinput">Release Date</label>
+                                <div class="controls">
+                                  <input type="text" name="releasedate" placeholder="Type something here..." class="span8" #releasedate="ngModel" [(ngModel)]="model.releasedate" required>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
+                                <label class="control-label" for="basicinput">Mini Description</label>
+                                <div class="controls">
+                                  <textarea class="span8" name="description" rows="5" #description="ngModel" [(ngModel)]="model.description"></textarea>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
+                                <div class="controls">
+                                  <button type="submit" class="btn">Submit Form</button>
+                                </div>
+                              </div>
+                            </form>
                         </div>
                       </div><!--/.module-->
                 </div>
@@ -47,4 +50,4 @@
     </div>
     <!--/.container-->
 </div>
-<app-footer></app-footer> 
+<app-footer></app-footer>

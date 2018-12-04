@@ -12,11 +12,12 @@
                         </div>
                         <div class="module-body">
                             <br />
-                            <form class="form-horizontal row-fluid" #profileAddForm="ngForm" (ngSubmit)="profileAddForm.valid && onSubmit(profileAddForm)">
+                            <form class="form-horizontal row-fluid" #profileAddForm="ngForm" (ngSubmit)="profileAddForm.valid && onSubmit(profileAddForm)" enctype="multipart/form-data">
                               <div class="control-group">
                                 <label class="control-label" for="basicinput">First Name</label>
                                 <div class="controls">
                                   <input type="text" name="firstName" class="span8" #firstName="ngModel" [(ngModel)]="celebrityEditData.firstName" required>
+                                  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="celebrityEditData._id">
                                 </div>
                               </div>
 
@@ -33,6 +34,51 @@
                                   <textarea class="span8" name="biodata" rows="5" #biodata="ngModel" [(ngModel)]="celebrityEditData.biodata"></textarea>
                                 </div>
                               </div>
+          
+                              <div class="control-group">
+                                <label class="control-label">Profile Pic</label>
+                                <div class="controls">
+                                  <img [src]="imageUrl"  style="width:150px;height:100px">
+                                  <input type="file" name="profilePic" #profilePic="ngModel" [(ngModel)]="model.profilePic" accept="image/*" (change)="handleFileInput($event.target.files)">
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Categories</label>
+                                <div class="controls">
+                                  <select name="category" tabindex="1" class="span8" multiple #category="ngModel" [(ngModel)]="celebrityEditData.category">
+                                    <option *ngFor="let category of categories" [value]="category._id" >{{ category.categoryName }}</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">DOB</label>
+                                <div class="controls">
+                                  <input type="text" name="dateOfBirth" placeholder="Type something here..." class="span8" #dateOfBirth="ngModel" [(ngModel)]="celebrityEditData.dateOfBirth" required>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Height</label>
+                                <div class="controls">
+                                  <input type="text" name="height" placeholder="Type something here..." class="span8" #height="ngModel" [(ngModel)]="celebrityEditData.height" required>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Education</label>
+                                <div class="controls">
+                                  <input type="text" name="education" placeholder="Type something here..." class="span8" #education="ngModel" [(ngModel)]="celebrityEditData.education" required>
+                                </div>
+                              </div>
+
+                              <!-- <div class="control-group">
+                                <label class="control-label">Spouse</label>
+                                <div class="controls">
+                                  <input type="text" name="spouse" placeholder="Type something here..." class="span8" #spouse="ngModel" [(ngModel)]="celebrityEditData.spouse" required>
+                                </div>
+                              </div> -->
           
                               <div class="control-group">
                                 <div class="controls">

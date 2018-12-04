@@ -24,11 +24,14 @@ export class CelebrityaddComponent implements OnInit {
     height: '',
     biodata: '',
     education: '',
-    spouse: ''
+    spouse: '',
+    category: null,
+    dateOfBirth: ''
   };
 
   serverErrorMessages: string;
   categories;
+  category: Object = {};
 
 
   handleFileInput(file: FileList) {

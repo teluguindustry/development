@@ -26,7 +26,7 @@ router.put('/updateCategory/:id', ctrlProfileCategory.updateCategory);
 router.post('/createProfile', ctrlCelebrityProfile.saveData);
 router.get('/getProfiles', ctrlCelebrityProfile.getProfiles);
 router.get('/getProfile/:id', ctrlCelebrityProfile.getProfile);
-router.put('/updateProfile/:id', ctrlCelebrityProfile.updateProfile);
+router.post('/updateProfile', ctrlCelebrityProfile.updateProfile);
 
 //Movies
 router.post('/createMovie', ctrlMovies.saveData);

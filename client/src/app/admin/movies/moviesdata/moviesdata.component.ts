@@ -24,6 +24,4 @@ export class MoviesdataComponent implements OnInit {
     )
   }
 
-
-
 }
