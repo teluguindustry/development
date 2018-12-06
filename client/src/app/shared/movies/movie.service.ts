@@ -14,8 +14,18 @@ export class MovieService {
     name: '',
     poster: '',
     description: '',
-    language: null,
-    releasedate: ''
+    language: '',
+    releasedate: '',
+    director: null,
+    producer: null,
+    screenplay: null,
+    story: null,
+    starring: null,
+    music: null,
+    cinematography: null,
+    edited: null,
+    productionCompany: null,
+    distributedBy: null
   };
 
 
@@ -24,6 +34,10 @@ export class MovieService {
   uri=environment.apiBaseUrl;
 
   HttpUploadOptions = {
+    headers: new HttpHeaders({ "Content-Type": "multipart/form-data", 'Accept': 'application/json' })
+  }
+
+  fileUploadHeaders(){
     headers: new HttpHeaders({ "Content-Type": "multipart/form-data", 'Accept': 'application/json' })
   }
 
@@ -37,17 +51,44 @@ export class MovieService {
     return this.http.get(environment.apiBaseUrl + '/getMovie/'+id);
   }
 
-  addMovie(movieDetails) {
-    // const formData = new FormData();
-    // formData.append('firstName', celebrityDetails.fileName);
-    // formData.append('lastName', celebrityDetails.lastName);
-    // formData.append('biodata', celebrityDetails.biodata);
-    // formData.append('profilePic', fileToUpload, fileToUpload.name);
+  addMovie(movieDetails, fileToUpload: File) {
+    const formData = new FormData();
+    formData.append('name', movieDetails.name);
+    formData.append('description', movieDetails.description);
+    formData.append('language', movieDetails.language);
+    formData.append('poster', fileToUpload, fileToUpload.name);
+    formData.append('releasedate', movieDetails.releasedate);
+    formData.append('director', movieDetails.director);
+    formData.append('producer', movieDetails.producer);
+    formData.append('screenplay', movieDetails.screenplay);
+    formData.append('story', movieDetails.story);
+    formData.append('starring', movieDetails.starring);
+    formData.append('music', movieDetails.music);
+    formData.append('cinematography', movieDetails.cinematography);
+    formData.append('edited', movieDetails.edited);
+    formData.append('productionCompany', movieDetails.productionCompany);
+    formData.append('distributedBy', movieDetails.distributedBy);
     return this.http.post(`${this.uri}/createMovie`, movieDetails);
   }
 
-  updateMovie(movieDetails,id) {
-    return this.http.put(`${this.uri}/updateMovie/${id}`, movieDetails);
+  updateMovie(movieDetails,id, fileToUpload: File) {
+    const formData = new FormData();
+    formData.append('name', movieDetails.name);
+    formData.append('description', movieDetails.description);
+    formData.append('language', movieDetails.language);
+    formData.append('poster', fileToUpload, fileToUpload.name);
+    formData.append('releasedate', movieDetails.releasedate);
+    formData.append('director', movieDetails.director);
+    formData.append('producer', movieDetails.producer);
+    formData.append('screenplay', movieDetails.screenplay);
+    formData.append('story', movieDetails.story);
+    formData.append('starring', movieDetails.starring);
+    formData.append('music', movieDetails.music);
+    formData.append('cinematography', movieDetails.cinematography);
+    formData.append('edited', movieDetails.edited);
+    formData.append('productionCompany', movieDetails.productionCompany);
+    formData.append('distributedBy', movieDetails.distributedBy);
+    return this.http.put(`${this.uri}/updateMovie/${id}`, formData);
   }
 }
 

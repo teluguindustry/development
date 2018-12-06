@@ -11,6 +11,9 @@ import { MovieService } from "../../../shared/movies/movie.service";
 })
 export class MovieseditComponent implements OnInit {
 
+  imageUrl: string = "/assets/img/default-image.png";
+  fileToUpload: File = null;
+
   celebrityProfileData;
   constructor(private ms: MovieService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -24,6 +27,17 @@ export class MovieseditComponent implements OnInit {
   serverErrorMessages: string;
 
   movieEditData: any = {};
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+
+    //Show image preview
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -40,7 +54,7 @@ export class MovieseditComponent implements OnInit {
 
   onSubmit(form : NgForm){
     this.activatedRoute.params.subscribe(params => {
-      this.ms.updateMovie(form.value, params['id']).subscribe(
+      this.ms.updateMovie(form.value, params['id'], this.fileToUpload).subscribe(
         res => {
           this.router.navigateByUrl('/movies');
         },
