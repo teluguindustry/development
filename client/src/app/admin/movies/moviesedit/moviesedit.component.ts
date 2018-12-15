@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { NgForm } from '@angular/forms';
 
 import { MovieService } from "../../../shared/movies/movie.service";
+import { CelebrityprofileService } from "../../../shared/celebrityprofile/celebrityprofile.service";
 
 @Component({
   selector: 'app-moviesedit',
@@ -15,16 +16,28 @@ export class MovieseditComponent implements OnInit {
   fileToUpload: File = null;
 
   celebrityProfileData;
-  constructor(private ms: MovieService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private ms: MovieService, private router: Router, private activatedRoute: ActivatedRoute, private cps: CelebrityprofileService) { }
 
   model = {
-    name : '',
-    description: '',
+    name: '',
     poster: '',
-    releasedate: ''
+    description: '',
+    language: '',
+    releasedate: '',
+    director: null,
+    producer: null,
+    screenplay: null,
+    story: null,
+    starring: null,
+    music: null,
+    cinematography: null,
+    edited: null,
+    productionCompany: null,
+    distributedBy: null
   };
 
   serverErrorMessages: string;
+  profiles;
 
   movieEditData: any = {};
 
@@ -44,6 +57,14 @@ export class MovieseditComponent implements OnInit {
       this.ms.editMovie(params['id']).subscribe(
         res => {
           this.movieEditData = res['movie'];
+          this.cps.getCelebrityProfiles().subscribe(
+            res => {
+              this.profiles = res['celebrityProfile'];
+            },
+            err => {
+              this.serverErrorMessages = err.error.message;
+            }
+          );
         },
         err => {
           console.log(err);
@@ -54,7 +75,7 @@ export class MovieseditComponent implements OnInit {
 
   onSubmit(form : NgForm){
     this.activatedRoute.params.subscribe(params => {
-      this.ms.updateMovie(form.value, params['id'], this.fileToUpload).subscribe(
+      this.ms.updateMovie(form.value, this.fileToUpload).subscribe(
         res => {
           this.router.navigateByUrl('/movies');
         },

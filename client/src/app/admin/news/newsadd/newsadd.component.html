@@ -1,3 +1,73 @@
-<p>
-  newsadd works!
-</p>
+
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head">
+                          <h3>Add News</h3>
+                        </div>
+                        <div class="module-body">
+                            <br />
+                            <form class="form-horizontal row-fluid" #newsAddForm="ngForm" (ngSubmit)="newsAddForm.valid && onSubmit(newsAddForm)" enctype="multipart/form-data">
+                              <div class="control-group">
+                                <label class="control-label">News Title</label>
+                                <div class="controls">
+                                  <input type="text" name="title" class="span8" #name="ngModel" [(ngModel)]="model.name" required>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
+                                <label class="control-label">News Poster</label>
+                                <div class="controls">
+                                  <img [src]="imageUrl"  style="width:150px;height:100px">
+                                  <input type="file" name="poster" #poster="ngModel" [(ngModel)]="model.poster" accept="image/*" (change)="handleFileInput($event.target.files)">
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
+                                <label class="control-label" for="basicinput">Description</label>
+                                <div class="controls">
+                                  <textarea class="span8" name="description" rows="5" #description="ngModel" [(ngModel)]="model.description"></textarea>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Movie</label>
+                                <div class="controls">
+                                  <select name="movie" tabindex="1" class="span8" id="movie" #movie="ngModel" [(ngModel)]="model.movie">
+                                    <option [value]="movie._id" *ngFor="let movie of movies">{{ movie.name }}</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Related Celebrity</label>
+                                <div class="controls">
+                                  <select name="starring" tabindex="1" class="span8" id="starring" multiple #starring="ngModel" [(ngModel)]="model.starring">
+                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
+                                  </select>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
+                                <div class="controls">
+                                  <button type="submit" class="btn">Submit Form</button>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                      </div><!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer>

@@ -7,7 +7,7 @@
               <ul class="nav pull-right">
                   <li *ngIf="userDetails"><a href="#">Welcome {{userDetails.fullName}}</a></li>
                   <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <img src="styles/images/user.png" class="nav-avatar" />
+                      <img [src]="profileUrl" class="nav-avatar" />
                       <b class="caret"></b></a>
                       <ul class="dropdown-menu">
                           <li><a routerLink="/getUserProfile">Your Profile</a></li>

@@ -32,13 +32,13 @@ router.post('/updateProfile', ctrlCelebrityProfile.updateProfile);
 router.post('/createMovie', ctrlMovies.saveData);
 router.get('/getMovies', ctrlMovies.getMovies);
 router.get('/getMovie/:id', ctrlMovies.getMovie);
-router.put('/updateMovie/:id', ctrlMovies.updateMovie);
+router.post('/updateMovie', ctrlMovies.updateMovie);
 
 //News
 router.post('/createNews', ctrlNews.saveData);
 router.get('/getAllNews', ctrlNews.getAllNews);
 router.get('/getNews/:id', ctrlNews.getNews);
-router.put('/updateNews/:id', ctrlNews.updateNews);
+router.post('/updateNews', ctrlNews.updateNews);
 
 //Gallery
 router.post('/createGallery', ctrlGallery.saveData);

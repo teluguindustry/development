@@ -1,3 +1,54 @@
-<p>
-  newsdata works!
-</p>
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head clearfix">
+                          <div class="pull-left">
+                              <h3 style="padding-top: 7px;">News</h3>
+                          </div>
+                          <div class="pull-right">
+                              <a routerLink="/addNews" class="btn btn-primary">Add News</a>
+                          </div>
+                        </div>
+                        <div class="module-body table">
+                          <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped display" width="100%">
+                            <thead>
+                              <tr>
+                                <th>News Title</th>
+                                <th>Movie</th>
+                                <th>Related Celebrity</th>
+                                <th>Poster</th>
+                                <th>Description</th>
+                                <th>Settings</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="odd gradeX" *ngFor="let news of newsData">
+                                <td> {{news.title}} </td>
+                                <td>{{news.movie}}</td>
+                                <td>{{news.relatedcelebrity}}</td>
+                                <td>{{news.newsposter}}</td>
+                                <td>{{news.description}}</td>
+                                <td>
+                                    <a routerLink="/editNews/{{news._id}}" title="Edit News"><i class="icon-edit"></i></a>
+                                    <a href="#" title="Delete News"><i class="icon-edit"></i></a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div><!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer> 

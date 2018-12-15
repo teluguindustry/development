@@ -1,6 +1,5 @@
 import { category } from "../category/category.model";
-export class CelebrityProfile {
-    id: String;
+export class celebrityProfile {
     firstName: String;
     lastName: String;
     profilePic: File;

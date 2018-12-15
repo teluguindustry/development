@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { MovieService } from '../../../shared/movies/movie.service';
+import { NewsService } from '../../../shared/news/news.service';
 
 @Component({
   selector: 'app-newsdata',
@@ -9,19 +9,19 @@ import { MovieService } from '../../../shared/movies/movie.service';
 })
 export class NewsdataComponent implements OnInit {
 
-  moviesData;
+  newsData;
   serverErrorMessages: string;
-  constructor(private router: Router, private ms: MovieService) { }
+  constructor(private router: Router, private ns: NewsService) { }
 
   ngOnInit() {
-    this.ms.getMovies().subscribe(
+    this.ns.getNews().subscribe(
       res => {
-        this.moviesData = res['movies'];
+        this.newsData = res['news'];
       },
       err => {
         console.log(err);
       }
     )
   }
-  
+
 }

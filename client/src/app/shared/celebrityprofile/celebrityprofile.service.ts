@@ -3,15 +3,14 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { environment } from "../../../environments/environment";
 
-import { CelebrityProfile } from './CelebrityProfile.model';
+import { celebrityProfile } from './CelebrityProfile.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CelebrityprofileService {
 
-  selectedProfile: CelebrityProfile = {
-    id:'',
+  selectedProfile: celebrityProfile = {
     firstName: '',
     lastName: '',
     profilePic: null,

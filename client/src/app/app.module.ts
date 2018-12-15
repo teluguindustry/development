@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 //components
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,7 @@ import { NewsdataComponent } from './admin/news/newsdata/newsdata.component';
 import { NewseditComponent } from './admin/news/newsedit/newsedit.component';
 import { NewsaddComponent } from './admin/news/newsadd/newsadd.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +64,8 @@ import { NewsaddComponent } from './admin/news/newsadd/newsadd.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

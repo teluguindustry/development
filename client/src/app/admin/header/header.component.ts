@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 export class HeaderComponent implements OnInit {
 
   userDetails;
+  profileUrl: string = "/assets/img/user.png";
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {

@@ -35,6 +35,92 @@
                               </div>
           
                               <div class="control-group">
+                                <label class="control-label">Poster</label>
+                                <div class="controls">
+                                  <img [src]="imageUrl"  style="width:150px;height:100px">
+                                  <input type="file" name="poster" #poster="ngModel" [(ngModel)]="model.poster" accept="image/*" (change)="handleFileInput($event.target.files)">
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Starring</label>
+                                <div class="controls">
+                                  <select name="starring" tabindex="1" class="span8" id="starring" multiple #starring="ngModel" [(ngModel)]="model.starring">
+                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Director</label>
+                                <div class="controls">
+                                  <select name="director" tabindex="1" class="span8" multiple #director="ngModel" [(ngModel)]="model.director">
+                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
+                                  </select>
+                                </div>
+                              </div>
+                              
+                              <div class="control-group">
+                                <label class="control-label">Producer</label>
+                                <div class="controls">
+                                  <select name="producer" tabindex="1" class="span8" multiple #producer="ngModel" [(ngModel)]="model.producer">
+                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Screenplay</label>
+                                <div class="controls">
+                                  <input type="text" name="screenplay" placeholder="Screenplay" class="span8" id="screenplay" #screenplay="ngModel" [(ngModel)]="model.screenplay" required>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Story</label>
+                                <div class="controls">
+                                  <input type="text" name="story" placeholder="Story" class="span8" #story="ngModel" [(ngModel)]="model.story" required>
+                                </div>
+                              </div>
+                              
+                              <div class="control-group">
+                                <label class="control-label">Music</label>
+                                <div class="controls">
+                                  <select name="music" tabindex="1" class="span8" multiple #music="ngModel" [(ngModel)]="model.music">
+                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Cinematography</label>
+                                <div class="controls">
+                                  <input type="text" name="cinematography" placeholder="Cinematography" class="span8" #cinematography="ngModel" [(ngModel)]="model.cinematography" required>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Edited By</label>
+                                <div class="controls">
+                                  <input type="text" name="edited" placeholder="Edited By" class="span8" #edited="ngModel" [(ngModel)]="model.edited" required>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Production Company</label>
+                                <div class="controls">
+                                  <input type="text" name="productionCompany" placeholder="Production Company" class="span8" #productionCompany="ngModel" [(ngModel)]="model.productionCompany" required>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Distributed By</label>
+                                <div class="controls">
+                                  <input type="text" name="distributedBy" placeholder="Distributed By" class="span8" #distributedBy="ngModel" [(ngModel)]="model.distributedBy" required>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
                                 <div class="controls">
                                   <button type="submit" class="btn">Submit Form</button>
                                 </div>

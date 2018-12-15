@@ -13,7 +13,7 @@
                         </div>
                         <div class="module-body">
                             <br />
-                            <form class="form-horizontal row-fluid" #movieAddForm="ngForm" (ngSubmit)="movieAddForm.valid && onSubmit(movieAddForm)" enctype="multipart/form-data">
+                            <form class="form-horizontal row-fluid" #movieAddForm="ngForm" (ngSubmit)="movieAddForm.valid && onSubmit(movieAddForm)" enctype="multipart/form-data" autocomplete="off">
                               <div class="control-group">
                                 <label class="control-label" for="basicinput">Movie Name</label>
                                 <div class="controls">
@@ -53,27 +53,45 @@
                               <div class="control-group">
                                 <label class="control-label">Starring</label>
                                 <div class="controls">
-                                  <select name="starring" tabindex="1" class="span8" id="starring" multiple #starring="ngModel" [(ngModel)]="model.starring">
-                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for celebrity'"
+                                    [name]="selectedstarring"
+                                    [data]="profiles"
+                                    [(ngModel)]="selectedstarring"
+                                    [settings]="selectSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                               </div>
 
                               <div class="control-group">
                                 <label class="control-label">Director</label>
                                 <div class="controls">
-                                  <select name="director" tabindex="1" class="span8" multiple #director="ngModel" [(ngModel)]="model.director">
-                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for director'"
+                                    [name]="selecteddirector"
+                                    [data]="profiles"
+                                    [(ngModel)]="selecteddirector"
+                                    [settings]="selectSettings"
+                                    class="span7"
+                                  >
+                                </ng-multiselect-dropdown>
                                 </div>
                               </div>
                               
                               <div class="control-group">
                                 <label class="control-label">Producer</label>
                                 <div class="controls">
-                                  <select name="director" tabindex="1" class="span8" multiple #director="ngModel" [(ngModel)]="model.director">
-                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for producer'"
+                                    [name]="selectedproducer"
+                                    [data]="profiles"
+                                    [(ngModel)]="selectedproducer"
+                                    [settings]="selectSettings"
+                                    class="span7"
+                                  >
+                                </ng-multiselect-dropdown>
                                 </div>
                               </div>
 
@@ -88,15 +106,22 @@
                                 <label class="control-label">Story</label>
                                 <div class="controls">
                                   <input type="text" name="story" placeholder="Story" class="span8" #story="ngModel" [(ngModel)]="model.story" required>
+                                  <!-- <tags-input class="form-control input-lg" (onTagsChanged)="onTagsChanged($event)" [removeLastOnBackspace]="removeLastOnBackspace" [(ngModel)]="tags" name="tags"></tags-input> -->
                                 </div>
                               </div>
                               
                               <div class="control-group">
                                 <label class="control-label">Music</label>
                                 <div class="controls">
-                                  <select name="music" tabindex="1" class="span8" multiple #music="ngModel" [(ngModel)]="model.music">
-                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for music director'"
+                                    [name]="selectedmusic"
+                                    [data]="profiles"
+                                    [(ngModel)]="selectedmusic"
+                                    [settings]="selectSettings"
+                                    class="span7"
+                                  >
+                                </ng-multiselect-dropdown>
                                 </div>
                               </div>
 
@@ -127,7 +152,7 @@
                                   <input type="text" name="distributedBy" placeholder="Distributed By" class="span8" #distributedBy="ngModel" [(ngModel)]="model.distributedBy" required>
                                 </div>
                               </div>
-          
+                              
                               <div class="control-group">
                                 <div class="controls">
                                   <button type="submit" class="btn">Submit Form</button>
