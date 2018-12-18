@@ -27,6 +27,8 @@ app.use(bodyparser.json());
 
 app.use('/api', rtsIndex);
 
+app.use('/uploads', express.static('uploads'));
+
 //error handler
 app.use((err, req, res, next) => {
     if(err.name === 'ValidationError'){

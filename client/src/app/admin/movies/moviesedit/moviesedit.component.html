@@ -45,78 +45,106 @@
                               <div class="control-group">
                                 <label class="control-label">Starring</label>
                                 <div class="controls">
-                                  <select name="starring" tabindex="1" class="span8" id="starring" multiple #starring="ngModel" [(ngModel)]="model.starring">
+                                  <!-- <select name="starring" tabindex="1" class="span8" id="starring" multiple #starring="ngModel" [(ngModel)]="model.starring">
                                     <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  </select> -->
+                                  
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for celebrity'"
+                                    [data]="cprofiles"
+                                    [name]="selectedstarring"
+                                    [(ngModel)]="selectedstarring"
+                                    [settings]="selectSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                               </div>
-
+                              
                               <div class="control-group">
                                 <label class="control-label">Director</label>
                                 <div class="controls">
-                                  <select name="director" tabindex="1" class="span8" multiple #director="ngModel" [(ngModel)]="model.director">
-                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for director'"
+                                    [data]="profiles"
+                                    [name]="selecteddirector"
+                                    [(ngModel)]="selecteddirector"
+                                    [settings]="selectSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                               </div>
                               
                               <div class="control-group">
                                 <label class="control-label">Producer</label>
                                 <div class="controls">
-                                  <select name="producer" tabindex="1" class="span8" multiple #producer="ngModel" [(ngModel)]="model.producer">
-                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for producer'"
+                                    [data]="profiles"
+                                    [name]="selectedproducer"
+                                    [(ngModel)]="selectedproducer"
+                                    [settings]="selectSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                               </div>
 
                               <div class="control-group">
                                 <label class="control-label">Screenplay</label>
                                 <div class="controls">
-                                  <input type="text" name="screenplay" placeholder="Screenplay" class="span8" id="screenplay" #screenplay="ngModel" [(ngModel)]="model.screenplay" required>
+                                  <input type="text" name="screenplay" placeholder="Screenplay" class="span8" id="screenplay" #screenplay="ngModel" [(ngModel)]="movieEditData.screenplay" required>
                                 </div>
                               </div>
 
                               <div class="control-group">
                                 <label class="control-label">Story</label>
                                 <div class="controls">
-                                  <input type="text" name="story" placeholder="Story" class="span8" #story="ngModel" [(ngModel)]="model.story" required>
+                                  <input type="text" name="story" placeholder="Story" class="span8" #story="ngModel" [(ngModel)]="movieEditData.story" required>
                                 </div>
                               </div>
                               
                               <div class="control-group">
                                 <label class="control-label">Music</label>
                                 <div class="controls">
-                                  <select name="music" tabindex="1" class="span8" multiple #music="ngModel" [(ngModel)]="model.music">
-                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for music'"
+                                    [data]="profiles"
+                                    [name]="selectedmusic"
+                                    [(ngModel)]="selectedmusic"
+                                    [settings]="selectSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                               </div>
 
                               <div class="control-group">
                                 <label class="control-label">Cinematography</label>
                                 <div class="controls">
-                                  <input type="text" name="cinematography" placeholder="Cinematography" class="span8" #cinematography="ngModel" [(ngModel)]="model.cinematography" required>
+                                  <input type="text" name="cinematography" placeholder="Cinematography" class="span8" #cinematography="ngModel" [(ngModel)]="movieEditData.cinematography" required>
                                 </div>
                               </div>
 
                               <div class="control-group">
                                 <label class="control-label">Edited By</label>
                                 <div class="controls">
-                                  <input type="text" name="edited" placeholder="Edited By" class="span8" #edited="ngModel" [(ngModel)]="model.edited" required>
+                                  <input type="text" name="edited" placeholder="Edited By" class="span8" #edited="ngModel" [(ngModel)]="movieEditData.edited" required>
                                 </div>
                               </div>
 
                               <div class="control-group">
                                 <label class="control-label">Production Company</label>
                                 <div class="controls">
-                                  <input type="text" name="productionCompany" placeholder="Production Company" class="span8" #productionCompany="ngModel" [(ngModel)]="model.productionCompany" required>
+                                  <input type="text" name="productionCompany" placeholder="Production Company" class="span8" #productionCompany="ngModel" [(ngModel)]="movieEditData.productionCompany" required>
                                 </div>
                               </div>
 
                               <div class="control-group">
                                 <label class="control-label">Distributed By</label>
                                 <div class="controls">
-                                  <input type="text" name="distributedBy" placeholder="Distributed By" class="span8" #distributedBy="ngModel" [(ngModel)]="model.distributedBy" required>
+                                  <input type="text" name="distributedBy" placeholder="Distributed By" class="span8" #distributedBy="ngModel" [(ngModel)]="movieEditData.distributedBy" required>
                                 </div>
                               </div>
           
