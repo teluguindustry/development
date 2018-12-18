@@ -72,6 +72,7 @@ module.exports.getMovie = (req, res) =>{
 
 module.exports.updateMovie = function (req, res, next) {
     var poster = null;
+    console.log(req.body.director);return false;
     if (req.poster !== 'undefined') {
         upload(req, res,(error) => {
             if(error){
@@ -85,6 +86,7 @@ module.exports.updateMovie = function (req, res, next) {
             }
         });
     }    
+    
     var director = req.body.director.split(',');
     var producer = req.body.producer.split(',');
     var screenplay = req.body.screenplay.split(',');

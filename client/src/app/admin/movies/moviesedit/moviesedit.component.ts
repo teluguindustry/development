@@ -29,13 +29,10 @@ export class MovieseditComponent implements OnInit {
   director = '';
   producer = '';
   music = '';
-  dropdownList = [];
   selectedstarring = [];
   selecteddirector = [];
   selectedproducer = [];
   selectedmusic = [];
-  selectSettings = {};  
-  selectStarringSettings = {};
   constructor(private ms: MovieService, private router: Router, private activatedRoute: ActivatedRoute, private cps: CelebrityprofileService) { }
 
   model = {
@@ -71,6 +68,7 @@ export class MovieseditComponent implements OnInit {
     reader.readAsDataURL(this.fileToUpload);
   }
 
+  dropdownSettings = {};
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.ms.editMovie(params['id']).subscribe(
@@ -80,7 +78,16 @@ export class MovieseditComponent implements OnInit {
           this.cps.getCelebrityProfiles().subscribe(
             res => {
               this.profiles = res['celebrityProfile'];
-              this.prepareSelectDropdown();
+              this.selectedstarring = this.getSelectProfiles(this.profiles, this.movieEditData['starring']);
+              this.selecteddirector = this.getSelectProfiles(this.profiles, this.movieEditData['director']);
+              this.selectedproducer = this.getSelectProfiles(this.profiles, this.movieEditData['producer']);
+              this.selectedmusic = this.getSelectProfiles(this.profiles, this.movieEditData['music']);
+              this.dropdownSettings = {
+                singleSelection: false,
+                idField: '_id',
+                textField: 'firstName',
+                allowSearchFilter: true
+              };
             },
             err => {
               this.serverErrorMessages = err.error.message;
@@ -161,21 +168,6 @@ export class MovieseditComponent implements OnInit {
       }
     }
     return sstarring;
-  }
-
-  prepareSelectDropdown() {
-    this.selectedstarring = this.getSelectProfiles(this.profiles, this.movieEditData['starring']);
-    this.selecteddirector = this.getSelectProfiles(this.profiles, this.movieEditData['director']);
-    this.selectedproducer = this.getSelectProfiles(this.profiles, this.movieEditData['producer']);
-    this.selectedmusic = this.getSelectProfiles(this.profiles, this.movieEditData['music']);
-    this.selectSettings = {
-      singleSelection: false,
-      idField: '_id',
-      textField: 'firstName',
-      allowSearchFilter: true
-    };
-    // this.selectedstarring =  [{_id: "5bf90d3e83582c268625fc2a", firstName: "Nani"}, {_id: "5bf92a6a49095c29b2dc0500", firstName: "Tharun"}];
-    // this.selectedstarring =  [{_id: "5bf92bcb49095c29b2dc0501", firstName: "Ritu"}, {_id: "5bfc973460f7190cc4c0fb1f", firstName: "Ram"}];
   }
 
 }
