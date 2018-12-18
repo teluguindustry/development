@@ -74,26 +74,26 @@ export class MovieService {
   }
 
   updateMovie(movieDetails, fileToUpload: File, starring, director, producer, music) {
-    const formData = new FormData();
-    formData.append('name', movieDetails.name);
-    formData.append('description', movieDetails.description);
-    formData.append('language', movieDetails.language);
+    var formEditData = new FormData();
+    formEditData.append('name', movieDetails.name);
+    formEditData.append('description', movieDetails.description);
+    formEditData.append('language', movieDetails.language);
     if(fileToUpload != null){
-      formData.append('poster', fileToUpload, fileToUpload.name);
+      formEditData.append('poster', fileToUpload, fileToUpload.name);
     }
-    formData.append('releasedate', movieDetails.releasedate);
-    formData.append('director', director);
-    formData.append('producer', producer);
-    formData.append('screenplay', movieDetails.screenplay);
-    formData.append('story', movieDetails.story);
-    formData.append('starring', starring);
-    formData.append('music', music);
-    formData.append('cinematography', movieDetails.cinematography);
-    formData.append('edited', movieDetails.edited);
-    formData.append('productionCompany', movieDetails.productionCompany);
-    formData.append('distributedBy', movieDetails.distributedBy);
-    formData.append('id', movieDetails.id);
-    return this.http.post(`${this.uri}/updateMovie`, formData);
+    formEditData.append('releasedate', movieDetails.releasedate);
+    formEditData.append('director', director);
+    formEditData.append('producer', producer);
+    formEditData.append('screenplay', movieDetails.screenplay);
+    formEditData.append('story', movieDetails.story);
+    formEditData.append('starring', starring);
+    formEditData.append('music', music);
+    formEditData.append('cinematography', movieDetails.cinematography);
+    formEditData.append('edited', movieDetails.edited);
+    formEditData.append('productionCompany', movieDetails.productionCompany);
+    formEditData.append('distributedBy', movieDetails.distributedBy);
+    formEditData.append('id', movieDetails.id);
+    return this.http.post(`${this.uri}/updateMovie`, formEditData);
   }
 }
 

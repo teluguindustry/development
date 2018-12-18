@@ -21,7 +21,7 @@ export class MovieseditComponent implements OnInit {
 
   celebrityProfileData;
 
-  uri="http://localhost:3000/uploads/movies/";
+  uris="http://localhost:3000/uploads/movies/";
 
   profiles;
   cprofiles;
@@ -74,7 +74,7 @@ export class MovieseditComponent implements OnInit {
       this.ms.editMovie(params['id']).subscribe(
         res => {
           this.movieEditData = res['movie'];
-          this.imageUrl = this.uri+res['movie']['poster'];
+          this.imageUrl = this.uris+res['movie']['poster'];
           this.cps.getCelebrityProfiles().subscribe(
             res => {
               this.profiles = res['celebrityProfile'];
