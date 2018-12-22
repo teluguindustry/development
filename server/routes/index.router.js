@@ -42,6 +42,9 @@ router.post('/updateNews', ctrlNews.updateNews);
 
 //Gallery
 router.post('/createGallery', ctrlGallery.saveData);
+router.get('/getAllGallery', ctrlGallery.getAllGallery);
+router.get('/getGallery/:id', ctrlGallery.getGallery);
+router.post('/updateGallery', ctrlGallery.updateGallery);
 
 
 module.exports = router;

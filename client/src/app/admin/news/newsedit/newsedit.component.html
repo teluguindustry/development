@@ -37,7 +37,7 @@
                                 </div>
                               </div>
 
-                              <div class="control-group">
+                              <!-- <div class="control-group">
                                 <label class="control-label">Movie</label>
                                 <div class="controls">
                                   <select name="movie" tabindex="1" class="span8" id="movie" #movie="ngModel" [(ngModel)]="newsData.movie">
@@ -52,6 +52,36 @@
                                   <select name="relatedcelebrity" tabindex="1" class="span8" multiple #relatedcelebrity="ngModel" [(ngModel)]="newsData.relatedcelebrity">
                                     <option *ngFor="let profile of profiles" [value]="profile._id">{{ profile.firstName +" "+ profile.lastName }}</option>
                                   </select>
+                                </div>
+                              </div> -->
+
+                              <div class="control-group">
+                                <label class="control-label">Movie</label>
+                                <div class="controls">
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search Movie'"
+                                    [data]="movies"
+                                    name="movie"
+                                    [(ngModel)]="movie"
+                                    [settings]="dropdownMovieSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Related Celebrity</label>
+                                <div class="controls">
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search Celebrity'"
+                                    [data]="profiles"
+                                    name="starring"
+                                    [(ngModel)]="starring"
+                                    [settings]="dropdownSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                               </div>
           

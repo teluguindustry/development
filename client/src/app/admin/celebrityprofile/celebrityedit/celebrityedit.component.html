@@ -14,19 +14,19 @@
                             <br />
                             <form class="form-horizontal row-fluid" #profileAddForm="ngForm" (ngSubmit)="profileAddForm.valid && onSubmit(profileAddForm)" enctype="multipart/form-data">
                               <div class="control-group">
-                                <label class="control-label" for="basicinput">First Name</label>
+                                <label class="control-label" for="basicinput">Name</label>
                                 <div class="controls">
                                   <input type="text" name="firstName" class="span8" #firstName="ngModel" [(ngModel)]="celebrityEditData.firstName" required>
                                   <input type="hidden" name="id" #id="ngModel" [(ngModel)]="celebrityEditData._id">
                                 </div>
                               </div>
 
-                              <div class="control-group">
+                              <!-- <div class="control-group">
                                 <label class="control-label" for="basicinput">Last Name</label>
                                 <div class="controls">
                                   <input type="text" name="lastName" placeholder="Type something here..." class="span8" #lastName="ngModel" [(ngModel)]="celebrityEditData.lastName" required>
                                 </div>
-                              </div>
+                              </div> -->
           
                               <div class="control-group">
                                 <label class="control-label" for="basicinput">Mini Bio</label>

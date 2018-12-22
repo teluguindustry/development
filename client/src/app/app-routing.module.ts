@@ -17,6 +17,9 @@ import { MovieseditComponent } from "./admin/movies/moviesedit/moviesedit.compon
 import { NewsdataComponent } from "./admin/news/newsdata/newsdata.component";
 import { NewsaddComponent } from "./admin/news/newsadd/newsadd.component";
 import { NewseditComponent } from "./admin/news/newsedit/newsedit.component";
+import { GallerydataComponent } from "./admin/gallery/gallerydata/gallerydata.component";
+import { GalleryaddComponent } from "./admin/gallery/galleryadd/galleryadd.component";
+import { GalleryeditComponent } from "./admin/gallery/galleryedit/galleryedit.component";
 
 import { AuthGuard } from './auth/auth.guard';
 
@@ -39,7 +42,10 @@ const routes: Routes = [
   { path: 'addMovie', component: MoviesaddComponent, canActivate:[AuthGuard]},
   { path: 'news', component: NewsdataComponent, canActivate:[AuthGuard]},
   { path: 'editNews/:id', component: NewseditComponent, canActivate:[AuthGuard]},
-  { path: 'addNews', component: NewsaddComponent, canActivate:[AuthGuard]}
+  { path: 'addNews', component: NewsaddComponent, canActivate:[AuthGuard]},
+  { path: 'gallery', component: GallerydataComponent, canActivate:[AuthGuard]},
+  { path: 'addGallery', component: GalleryaddComponent, canActivate:[AuthGuard]},
+  { path: 'editGallery/:id', component: GalleryeditComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

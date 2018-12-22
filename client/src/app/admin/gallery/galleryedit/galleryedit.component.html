@@ -1,0 +1,78 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head">
+                          <h3>Edit Gallery</h3>
+                        </div>
+                        <div class="module-body">
+                            <form class="form-horizontal row-fluid" #galleryEditForm="ngForm" (ngSubmit)="galleryEditForm.valid && onSubmit(galleryEditForm)" enctype="multipart/form-data">
+                              
+                              <div class="control-group">
+                                <label class="control-label">Gallery Title</label>
+                                <div class="controls">
+                                  <input type="text" name="title" class="span8" #title="ngModel" [(ngModel)]="galleryEditData.caption" required>
+                                  <input type="hidden" name="id" class="span8" #id="ngModel" [(ngModel)]="galleryEditData._id" required>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
+                                <label class="control-label">Gallery Pic</label>
+                                <div class="controls">
+                                  <img [src]="imageUrl"  style="width:150px;height:100px">
+                                  <input type="file" name="galleryPic" #galleryPic="ngModel" [(ngModel)]="model.profilePic" accept="image/*" (change)="handleFileInput($event.target.files)">
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                  <label class="control-label">Starring</label>
+                                  <div class="controls">
+                                    <ng-multiselect-dropdown
+                                      [placeholder]="'Search Celebrity'"
+                                      [data]="profiles"
+                                      name="selectedstarring"
+                                      [(ngModel)]="selectedstarring"
+                                      [settings]="dropdownStarringSettings"
+                                      class="span7"
+                                    >
+                                    </ng-multiselect-dropdown>
+                                  </div>
+                                </div>
+  
+                                <div class="control-group">
+                                  <label class="control-label">Category</label>
+                                  <div class="controls">
+                                    <ng-multiselect-dropdown
+                                      [placeholder]="'Search Category'"
+                                      [data]="categories"
+                                      name="selectedcategory"
+                                      [(ngModel)]="selectedcategory"
+                                      [settings]="dropdownSettings"
+                                      class="span7"
+                                    >
+                                    </ng-multiselect-dropdown>
+                                  </div>
+                                </div>
+          
+                              <div class="control-group">
+                                <div class="controls">
+                                  <button type="submit" class="btn">Submit Form</button>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                      </div><!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer>

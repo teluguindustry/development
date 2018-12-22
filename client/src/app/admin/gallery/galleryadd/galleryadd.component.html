@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head">
+                          <h3>Add Gallery</h3>
+                        </div>
+                        <div class="module-body">
+                            <form class="form-horizontal row-fluid" #profileAddForm="ngForm" (ngSubmit)="profileAddForm.valid && onSubmit(profileAddForm)" enctype="multipart/form-data">
+                              
+                              <div class="control-group">
+                                <label class="control-label">Gallery Title</label>
+                                <div class="controls">
+                                  <input type="text" name="title" class="span8" #title="ngModel" [(ngModel)]="model.title" required>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
+                                <label class="control-label">Gallery Pic</label>
+                                <div class="controls">
+                                  <!-- <img [src]="imageUrl"  style="width:150px;height:100px"> -->
+                                  <img *ngFor='let url of urls'  [src]="url" style="width:150px;height:100px">
+                                  <input type="file" name="galleryPic" #galleryPic="ngModel" [(ngModel)]="model.galleryPic" accept="image/*" (change)="handleFileInput($event)" multiple>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Select Celebrity</label>
+                                <div class="controls">
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for celebrity'"
+                                    [name]="selectedstarring"
+                                    [data]="profiles"
+                                    [(ngModel)]="selectedstarring"
+                                    [settings]="dropdownSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
+                                </div>
+                              </div>
+
+                              <div class="control-group">
+                                <label class="control-label">Categories</label>
+                                <div class="controls">
+                                  <select name="category" tabindex="1" data-placeholder="Select here.." class="span8" multiple #category="ngModel" [(ngModel)]="model.category">
+                                    <option [value]="category._id" *ngFor="let category of categories">{{ category.categoryName }}</option>
+                                  </select>
+                                </div>
+                              </div>
+          
+                              <div class="control-group">
+                                <div class="controls">
+                                  <button type="submit" class="btn">Submit Form</button>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                      </div><!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer>

@@ -39,18 +39,30 @@
                               <div class="control-group">
                                 <label class="control-label">Movie</label>
                                 <div class="controls">
-                                  <select name="movie" tabindex="1" class="span8" id="movie" #movie="ngModel" [(ngModel)]="model.movie">
-                                    <option [value]="movie._id" *ngFor="let movie of movies">{{ movie.name }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for movie'"
+                                    [name]="movie"
+                                    [data]="movies"
+                                    [(ngModel)]="movie"
+                                    [settings]="dropdownMovieSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                               </div>
 
                               <div class="control-group">
                                 <label class="control-label">Related Celebrity</label>
                                 <div class="controls">
-                                  <select name="starring" tabindex="1" class="span8" id="starring" multiple #starring="ngModel" [(ngModel)]="model.starring">
-                                    <option [value]="profile._id" *ngFor="let profile of profiles">{{ profile.firstName +" "+ profile.lastName }}</option>
-                                  </select>
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for celebrity'"
+                                    [name]="starring"
+                                    [data]="profiles"
+                                    [(ngModel)]="starring"
+                                    [settings]="dropdownSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                               </div>
           

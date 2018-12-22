@@ -19,8 +19,8 @@
                           <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped display" width="100%">
                             <thead>
                               <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Name</th>
+                                <!-- <th>Last Name</th> -->
                                 <th>Description</th>
                                 <th>Settings</th>
                               </tr>
@@ -28,7 +28,7 @@
                             <tbody>
                               <tr class="odd gradeX" *ngFor="let cbProfile of celebrityProfileData">
                                 <td> {{cbProfile.firstName}} </td>
-                                <td>{{cbProfile.lastName}}</td>
+                                <!-- <td>{{cbProfile.lastName}}</td> -->
                                 <td>{{cbProfile.biodata}}</td>
                                 <td>
                                     <a routerLink="/editCelebrity/{{cbProfile._id}}" title="Edit Celebrity"><i class="icon-edit"></i></a>

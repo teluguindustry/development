@@ -12,11 +12,15 @@ const newsSchema = new mongoose.Schema({
         type:String
     },
     movie:{
-        type:String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie',
+        required: true
     },
-    relatedcelebrity:{
-        type:Array
-    },
+    relatedcelebrity:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'CelebrityProfile',
+        required: true
+    }],
     isActive:{
         type:Boolean,
         default: true

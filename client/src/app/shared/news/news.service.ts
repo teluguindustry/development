@@ -45,23 +45,25 @@ export class NewsService {
     return this.http.get(environment.apiBaseUrl + '/getNews/'+id);
   }
 
-  addNews(newsDetails, fileToUpload: File) {
+  addNews(newsDetails, fileToUpload: File, starring, movie) {
     const formData = new FormData();
     formData.append('title', newsDetails.title);
     formData.append('description', newsDetails.description);
-    formData.append('movie', newsDetails.movie);
+    formData.append('movie',movie);
     formData.append('newsposter', fileToUpload, fileToUpload.name);
-    formData.append('relatedcelebrity', newsDetails.starring);
+    formData.append('relatedcelebrity', starring);
     return this.http.post(`${this.uri}/createNews`, formData);
   }
 
-  updateNews(newsDetails, fileToUpload: File) {
+  updateNews(newsDetails, fileToUpload: File, starring, movie) {
     const formData = new FormData();
     formData.append('title', newsDetails.title);
     formData.append('description', newsDetails.description);
-    formData.append('movie', newsDetails.movie);
-    formData.append('newsposter', fileToUpload, fileToUpload.name);
-    formData.append('relatedcelebrity', newsDetails.relatedcelebrity);
+    formData.append('movie', movie);
+    if(fileToUpload != null){
+      formData.append('newsposter', fileToUpload, fileToUpload.name);
+    }
+    formData.append('relatedcelebrity', starring);
     formData.append('id', newsDetails.id);
     return this.http.post(`${this.uri}/updateNews`, formData);
   }

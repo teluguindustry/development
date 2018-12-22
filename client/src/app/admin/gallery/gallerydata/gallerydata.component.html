@@ -9,29 +9,35 @@
                     <div class="module">
                         <div class="module-head clearfix">
                           <div class="pull-left">
-                              <h3 style="padding-top: 7px;">Movies</h3>
+                              <h3 style="padding-top: 7px;">Gallery</h3>
                           </div>
                           <div class="pull-right">
-                              <a routerLink="/addMovie" class="btn btn-primary">Add Movies</a>
+                              <a routerLink="/addGallery" class="btn btn-primary">Add Gallery</a>
                           </div>
                         </div>
                         <div class="module-body table">
                           <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped display" width="100%">
                             <thead>
                               <tr>
-                                <th>Movie Name</th>
-                                <th>Description</th>
-                                <th>Release Date</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Images</th>
                                 <th>Settings</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr class="odd gradeX" *ngFor="let movie of moviesData">
-                                <td> {{movie.name}} </td>
-                                <td>{{movie.description | slice:0:50}}</td>
-                                <td>{{movie.releasedate}}</td>
+                              <tr class="odd gradeX" *ngFor="let gallery of GalleryData">
+                                <td> {{gallery.caption}} </td>
                                 <td>
-                                    <a routerLink="/editMovie/{{movie._id}}" title="Edit Celebrity"><i class="icon-edit"></i></a>
+                                    <tr>
+                                        <td *ngFor="let category of gallery.category">
+                                            {{category.categoryName}}
+                                        </td>
+                                    </tr>
+                                </td>
+                                <td> {{gallery.pic}} </td>
+                                <td>
+                                    <a routerLink="/editGallery/{{gallery._id}}" title="Edit Gallery"><i class="icon-edit"></i></a>
                                     <a href="#" title="Delete Celebrity"><i class="icon-edit"></i></a>
                                 </td>
                               </tr>

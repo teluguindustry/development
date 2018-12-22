@@ -32,7 +32,14 @@ export class NewseditComponent implements OnInit {
     comment: null,
     updatedAt: ''
   };
-  
+
+  starring = [];
+  movie = [];
+  selectstarring = '';
+  selectmovie = '';
+  dropdownSettings = {};
+  dropdownMovieSettings = {};
+  uris="http://localhost:3000/uploads/news/";
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
 
@@ -45,38 +52,41 @@ export class NewseditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCelebrityProfiles();
-    this.getMovies();
-    this.getNewsData();
-  }
-
-  getCelebrityProfiles() {
-    this.cps.getCelebrityProfiles().subscribe(
-      res => {
-        this.profiles = res['celebrityProfile'];
-      },
-      err => {
-        this.serverErrorMessages = err.error.message;
-      }
-    );
-  }
-
-  getMovies() {
-    this.ms.getMovies().subscribe(
-      res => {
-        this.movies = res['movies'];
-      },
-      err => {
-        this.serverErrorMessages = err.error.message;
-      }
-    );
-  }
-
-  getNewsData() {
     this.activatedRoute.params.subscribe(params => {
       this.ns.editNews(params['id']).subscribe(
         res => {
           this.newsData = res['news'];
+          this.imageUrl = this.uris+res['news']['newsposter'];
+          this.ms.getMovies().subscribe(
+            res => {
+              this.movies = res['movies'];
+              this.getSelectMovies(this.movies, this.newsData['movie']);
+              this.dropdownMovieSettings = {
+                singleSelection: false,
+                idField: '_id',
+                textField: 'name',
+                allowSearchFilter: true
+              };
+            },
+            err => {
+              this.serverErrorMessages = err.error.message;
+            }
+          );
+          this.cps.getCelebrityProfiles().subscribe(
+            res => {
+              this.profiles = res['celebrityProfile'];
+              this.getSelectProfiles(this.profiles, this.newsData['relatedcelebrity']);
+              this.dropdownSettings = {
+                singleSelection: false,
+                idField: '_id',
+                textField: 'firstName',
+                allowSearchFilter: true
+              };
+            },
+            err => {
+              this.serverErrorMessages = err.error.message;
+            }
+          );
         },
         err => {
           this.serverErrorMessages = err.error.message;
@@ -85,8 +95,36 @@ export class NewseditComponent implements OnInit {
     });
   }
 
+  getSelectMovies(movies, selectValue) {
+    var i;
+    var j;
+    var newSelectarray = [];
+    for(i=0; i<movies.length;i++){
+      if(selectValue == movies[i]['_id']){
+        newSelectarray.push({'_id':movies[i]['_id'], 'name':movies[i]['name']});
+      }
+    }
+    this.movie = newSelectarray;
+  }
+
+  getSelectProfiles(profiles, selectValue) {
+    var i;
+    var j;
+    var newSelectarray = [];
+    for(i=0; i<profiles.length;i++){
+      for(j=0; j<selectValue.length;j++){
+        if(selectValue[j] == profiles[i]['_id']){
+          newSelectarray.push({'_id':profiles[i]['_id'], 'firstName':profiles[i]['firstName']});
+        }
+      }
+    }
+    this.starring = newSelectarray;
+  }
+
   onSubmit(form : NgForm){
-    this.ns.updateNews(form.value, this.fileToUpload).subscribe(
+    this.selectstarring = this.formatMultiData(this.starring);
+    this.selectmovie = this.formatMultiData(this.movie);
+    this.ns.updateNews(form.value, this.fileToUpload, this.selectstarring, this.selectmovie).subscribe(
       res => {
         this.router.navigateByUrl('/news');
       },
@@ -94,6 +132,19 @@ export class NewseditComponent implements OnInit {
         this.serverErrorMessages = err.error.message;
       }
     );
+  }
+
+  formatMultiData(selectedData){
+    var i;
+    var sstarring = "";
+    for(i=0; i<selectedData.length;i++){
+      if(i == selectedData.length-1){
+        sstarring += selectedData[i]['_id'];
+      }else{
+        sstarring += selectedData[i]['_id'] + ",";
+      }
+    }
+    return sstarring;
   }
 
 }

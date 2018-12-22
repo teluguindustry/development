@@ -4,7 +4,7 @@ const path   = require('path');
 
 /** Storage Engine */
 const storageEngine = multer.diskStorage({
-  destination: './uploads',
+  destination: './uploads/gallery',
   filename: function(req, file, fn){
     fn(null,  'teluguindustry-'+new Date().getTime().toString()+path.extname(file.originalname));
   }
@@ -18,7 +18,7 @@ const upload =  multer({
   fileFilter: function(req, file, callback){
     validateFile(file, callback);
   }
-}).single('photo');
+}).array('photo[]');
 
 
 var validateFile = function(file, cb ){

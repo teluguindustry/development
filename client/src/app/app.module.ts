@@ -33,6 +33,9 @@ import { MovieseditComponent } from './admin/movies/moviesedit/moviesedit.compon
 import { NewsdataComponent } from './admin/news/newsdata/newsdata.component';
 import { NewseditComponent } from './admin/news/newsedit/newsedit.component';
 import { NewsaddComponent } from './admin/news/newsadd/newsadd.component';
+import { GallerydataComponent } from './admin/gallery/gallerydata/gallerydata.component';
+import { GalleryaddComponent } from './admin/gallery/galleryadd/galleryadd.component';
+import { GalleryeditComponent } from './admin/gallery/galleryedit/galleryedit.component';
 
 
 @NgModule({
@@ -58,7 +61,10 @@ import { NewsaddComponent } from './admin/news/newsadd/newsadd.component';
     MovieseditComponent,
     NewsdataComponent,
     NewseditComponent,
-    NewsaddComponent
+    NewsaddComponent,
+    GallerydataComponent,
+    GalleryaddComponent,
+    GalleryeditComponent
   ],
   imports: [
     BrowserModule,

@@ -32,6 +32,13 @@ export class NewsaddComponent implements OnInit {
   profiles;
   movies;
 
+  starring = [];
+  movie = [];
+  selectstarring = '';
+  selectmovie = '';
+  dropdownSettings = {};
+  dropdownMovieSettings = {};
+
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
 
@@ -44,17 +51,36 @@ export class NewsaddComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCelebrityProfiles();
-    this.getMovies();
-  }
-
-  getCelebrityProfiles() {
     this.cps.getCelebrityProfiles().subscribe(
       res => {
         this.profiles = res['celebrityProfile'];
       },
       err => {
         this.serverErrorMessages = err.error.message;
+      }
+    );
+    this.getMovies();
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: '_id',
+      textField: 'firstName',
+      allowSearchFilter: true
+    };
+    this.dropdownMovieSettings = {
+      singleSelection: false,
+      idField: '_id',
+      textField: 'name',
+      allowSearchFilter: true
+    };
+  }
+
+  getCelebrityProfiles() {
+    this.cps.getCelebrityProfiles().subscribe(
+      res => {
+        return res['celebrityProfile'];
+      },
+      err => {
+        return err.error.message;
       }
     );
   }
@@ -71,7 +97,9 @@ export class NewsaddComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){
-    this.ns.addNews(form.value, this.fileToUpload).subscribe(
+    this.selectstarring = this.formatMultiData(this.starring);
+    this.selectmovie = this.formatMultiData(this.movie);
+    this.ns.addNews(form.value, this.fileToUpload, this.selectstarring, this.selectmovie).subscribe(
       res => {
         this.router.navigateByUrl('/news');
       },
@@ -79,5 +107,18 @@ export class NewsaddComponent implements OnInit {
         this.serverErrorMessages = err.error.message;
       }
     );
+  }
+
+  formatMultiData(selectedData){
+    var i;
+    var sstarring = "";
+    for(i=0; i<selectedData.length;i++){
+      if(i == selectedData.length-1){
+        sstarring += selectedData[i]['_id'];
+      }else{
+        sstarring += selectedData[i]['_id'] + ",";
+      }
+    }
+    return sstarring;
   }
 }

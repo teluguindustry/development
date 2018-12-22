@@ -30,10 +30,14 @@
                             <tbody>
                               <tr class="odd gradeX" *ngFor="let news of newsData">
                                 <td> {{news.title}} </td>
-                                <td>{{news.movie}}</td>
-                                <td>{{news.relatedcelebrity}}</td>
+                                <td>{{news.movie.name}}</td>
+                                <td>
+                                    <tr *ngFor="let profile of news.relatedcelebrity">
+                                        <td>{{profile.firstName +" "+profile.lastName}}</td>
+                                    </tr>
+                                </td>
                                 <td>{{news.newsposter}}</td>
-                                <td>{{news.description}}</td>
+                                <td>{{news.description | slice:0:50}}</td>
                                 <td>
                                     <a routerLink="/editNews/{{news._id}}" title="Edit News"><i class="icon-edit"></i></a>
                                     <a href="#" title="Delete News"><i class="icon-edit"></i></a>
