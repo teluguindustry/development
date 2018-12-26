@@ -7,6 +7,7 @@ require('./models/celebrityprofile.model');
 require('./models/movies.model');
 require('./models/news.model');
 require('./models/gallery.model');
+require('./models/nowplaying.model')
 
 const express = require('express');
 const bodyparser = require('body-parser');

@@ -31,17 +31,6 @@ module.exports.saveData = (req, res, next) => {
     });
 }
 
-// module.exports.getAllNews = (req, res, next) =>{
-//     News.find({},
-//         (err, news) => {
-//             if (!news)
-//                 return res.status(404).json({ status: false, message: 'Records not found.' });
-//             else
-//                 return res.status(200).json({ status: true, news : news });
-//         }
-//     );
-// }
-
 module.exports.getAllNews = (req, res, next) =>{
     News.find({}).populate('relatedcelebrity', ['firstName', 'lastName'])
     .populate('movie', 'name')

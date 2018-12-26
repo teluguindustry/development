@@ -1,0 +1,55 @@
+<app-websiteheader></app-websiteheader>
+<link href="../../../styles/css/teluguindustry.css" rel="stylesheet">
+      
+      <!-- Icons Grid -->
+<section class="features-icons">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Movie News</li>
+                        </ul>
+                        <div class="article">
+                            <ul class="ti_news">
+                                <li *ngFor="let news of newsData">
+                                    <a routerLink="/newsdetail/{{news._id}}">
+                                        <span class="news_img">
+                                            <img src="{{uris+news.newsposter}}" alt="" title="">
+                                        </span>
+                                        <span class="news_desc">
+                                            <p>{{news.title}}</p>
+                                            <code>{{news.createdAt}}</code>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div> 
+                </div>
+
+
+                <div class="col-md-4">
+                        <div class="ti_ad">
+                            <img src="img/Taxiwaala-thumb.jpg" alt="">
+                        </div>
+
+                    <app-sidebargallery></app-sidebargallery>
+                    
+                    <app-sidebarnewslist></app-sidebarnewslist>                 
+                    
+                    <div class="ti-title"><h2>We Promote</h2></div>
+                    <ul>
+                        <li>
+                            <img src="img/review.jpg" alt="">
+                        </li>
+                    </ul>                  
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+<app-websitefooter></app-websitefooter>

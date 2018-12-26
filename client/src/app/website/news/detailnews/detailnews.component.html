@@ -1,0 +1,70 @@
+<app-websiteheader></app-websiteheader>
+<link href="../../../styles/css/teluguindustry.css" rel="stylesheet">
+<!-- Icons Grid -->
+<section class="features-icons">
+    <div class="container">
+        <div class="col-md-12">
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="row">
+                      <ul class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Movie News</li>
+                      </ul>
+                      <div class="article">
+                          <div class="ti_newstitle">
+                              <h1 title="{{ newsData.title }}">{{ newsData.title }}</h1>
+                              <p class="ti_metatitles">{{ newsData.createdAt }}</p>
+                              <div class="social">
+                                  <a href="#"><span class="ti_facebook" displaytext="Facebook"></span></a>
+                                  <a href="#"><span class="ti_twitter" displaytext="Tweet"></span></a>
+                                  <a href="#"><span class="ti_plusone" displaytext="Google +1"></span></a>
+                              </div>                                
+                          </div>
+                          <div class="article_img">
+                              <img [src]="imageUrl" alt="{{ newsData.title }}" style="width:668px;height:446px">
+                              <p> </p>
+                              <p>{{ newsData.description }}</p>
+                              <div class="ti_ad">
+                                  <img src="styles/images/review.jpg" alt="">
+                              </div>
+                              <div class="tags"><span>TI TAGS:</span>
+                                  <a href="#">Anchor Rashmi Gautam </a> 
+                                  <a href="#"> Tirupati Fake Flaxy</a>
+                                  <a href="#"> Jabardasth Anchor </a>
+                                  <a href="#">Rashmi Gautam</a>
+                                  <a href="#"> Telugu News</a>
+                              </div> 
+
+                              <div class="navigation">
+                                  <a href=""><span class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i>ఆ ఫ్లెక్సీ పై క్లారిటీ ఇచ్చిన జబర్దస్త్ బ్యూటీ</span></a>
+                                  <a href=""><span class="next"><i class="fa fa-angle-right" aria-hidden="true"></i>క్రిష్ నుంచి ఆ మ్యాజిక్ ఆశించగలమా?</span></a>
+                              </div>                                
+                          </div>
+                      </div>
+
+                  </div> 
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="ti_ad">
+                    <img src="styles/images/Taxiwaala-thumb.jpg" alt="">
+                </div>
+
+                  <app-sidebargallery></app-sidebargallery>
+                  
+                  <app-sidebarnewslist></app-sidebarnewslist>                    
+                  
+                  <div class="ti-title"><h2>We Promote</h2></div>
+                  <ul>
+                      <li>
+                          <img src="styles/images/review.jpg" alt="">
+                      </li>
+                  </ul>                  
+              </div>
+          </div> 
+        </div>
+    </div>
+  </section>
+<app-websitefooter></app-websitefooter>

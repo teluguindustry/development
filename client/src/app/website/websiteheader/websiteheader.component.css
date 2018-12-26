@@ -1,0 +1,254 @@
+.navbar {
+    position: static!important;
+}
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a, a:hover{text-decoration: none;}
+.no-padding{padding: 0;margin: 0;}
+/*Header Part*/
+.teluguindystry_header {
+	background: #191919;
+	padding: 20px 0;
+}
+.ti_menu {
+    background: #191919;
+}
+ul.main_nav {
+	font-size: 13px;
+	list-style: none;
+	padding: 0 0 0 1px;
+}
+ul.main_nav li.spacer {
+	background: #555555;
+	background: -webkit-linear-gradient(top, rgba(51,51,51,0) 3%, #333 15%, #727272 50%, #232323 85%);
+	background: linear-gradient(to bottom, rgba(51,51,51,0) 3%, #333 15%, #727272 50%, #232323 85%);
+	height: 46px;
+	padding: 0px;
+	width: 1px;
+}
+ul.main_nav li {
+	background: transparent;
+	float: left;
+	margin: 0;
+	padding: 7px 40px 0 15px;
+	position: relative;
+	height: 39px;
+	list-style: none;
+}
+.ti-title {
+	color: #333;
+	margin-top: 15px;
+	padding: 15px 0 0 0;
+	height: 10px;
+	text-align: center;
+	border-top: solid 1px #999;
+	margin: 36px 0 6px 0;
+}
+.ti-title h2 {
+	display: inline-block;
+	font: normal 24px 'ProximaNova-Semibold', Arial;
+	background-color: #fff;
+	position: relative;
+	top: -30px;
+	padding: 0 20px;
+	line-height: 30px;
+    margin: 0;
+}
+.ti_list li a {
+	display: block;
+	padding: 10px 0;
+	font: normal 15px 'ProximaNova-Regular', Arial;
+	color: #211c29;
+	border-bottom: solid 1px #ccc;
+}
+.ti_list li a:hover{font-weight: 600;text-decoration: none;}
+.ti_list li:last-child a{
+	border-bottom: 0;
+}
+
+/* Movie Review */
+.today_release{
+    text-align: center;
+    padding: 1rem;
+    border:1px dotted rgb(244, 244, 244);
+}
+.today_release a p{margin: 1rem 0 0 0;}
+.ti_review1,.ti_review2{width:136px;float: left;}
+.ti_review1 img{height:80px;width: 124px;}
+.ti_review2 p{
+    font:normal 18px/18px 'Ramabhadra', Arial, Helvetica, sans-serif;
+    margin: 1rem 0;
+}
+.reviews_li li {
+	padding: 5px 15px;
+	overflow: hidden;
+    border-bottom:1px dotted rgb(244, 244, 244);
+}
+.ti_review2 a:hover{color:#ed3237;text-decoration:none;}
+
+/* Home Page Videos Container */
+.ti_videos .video_img img{
+	width: 124px;
+	height: 70px;
+	float: left;
+	margin-right: 8px;
+}
+.ti_videos li a {
+	display: table;
+}
+.ti_videos .video_desc{
+    display: table-cell;
+    vertical-align: top;
+    text-align: left;  line-height: 1; 
+}
+.ti_featured_vid .col.right{margin-left: 20px;}
+.ti_featured_vid  .col {
+	width: 342px;
+	float: left;
+}
+code {
+	font: normal 12px 'ProximaNova-Semibold', Arial;
+	color: #9b9b9b;
+}
+.video_desc p{color: #4a4a4a;margin-bottom: 3px;font-weight: 600;line-height: 22px;}
+.ti_videos li a:hover p{color: #ed3237;}
+.ti_videos li a:hover{text-decoration: none;}
+
+/* Inner Page Style Css*/
+.breadcrumb {
+	border-bottom: solid 1px #979797;
+	color: #545c5c;
+	margin-bottom: 10px;
+    background: none;
+    width: 100%;
+}
+.breadcrumb-item a{color: #ed3237;text-decoration: none;}
+.ti_newstitle h1 {
+	color: #ed3237;
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+.ti_newstitle{position: relative;}
+.ti_newstitle .social {
+	position: absolute;
+	right: 0;
+	bottom: -10px;
+}
+/* .social a span.ti_facebook {
+	background: url(../images/ti_fb.png) no-repeat scroll left top transparent;padding:20px;
+}
+.social a span.ti_twitter {
+	background: url(../images/ti_tw.png) no-repeat scroll left top transparent;padding:20px;
+}
+.social a span.ti_plusone {
+	background: url(../images/ti_gp.png) no-repeat scroll left top transparent;padding:20px;
+} */
+.ti_metatitles {
+	font-weight: 400;
+	color: ;
+	margin: 0 0 5px 0;
+	padding: 0;
+	font-size: 11px;
+	width: 400px;
+}
+.ti_ad{text-align: center;margin:16px 0;}
+.tags {
+	font-size: 15px;
+	line-height: 20px;
+	color: black;
+	border-top: solid 1px #dfdfdf;
+	border-bottom: solid 1px #dfdfdf;
+	padding: 7px 0;
+	margin-bottom: 20px;
+}
+.navigation {
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	overflow: hidden;
+}
+.navigation .next {
+	width: 300px;
+	margin-right: 10px;
+/*	border: 1px solid #ddd;*/
+	float: right;
+	padding: 10px;
+	padding-right: 0;
+    text-align: right;
+}
+.navigation .prev {
+	width: 300px;
+	margin-right: 10px;
+/*	border: 1px solid #ddd;*/
+	float: left;
+	padding: 10px;
+	padding-right: 0;
+}
+.suggested_section{overflow: hidden;margin-top: 10px;}
+.suggested_section li {
+	float: left;
+	width: 48%;
+	margin-right: 5px;
+    text-align: center;
+    height: 160px;
+}
+.suggested_section li p{line-height: 18px;color: #007bff;}
+.suggested_section li a:hover p{color: #ed3237;}
+
+/* Gallery Page Style */
+.tab-content {
+	border-left: solid 1px #eee;
+	border-right: solid 1px #eee;
+	border-bottom: solid 1px #eee;
+	padding: 10px;
+}
+.ti_gallery .nav-tabs > li > a {
+	margin-right: 2px;
+	line-height: 1.42857143;
+	border: 1px solid transparent;
+	border-radius: 0;
+	background: #eee;
+	color: #666;
+	font-weight: 600;
+}
+.ti_gallery .nav-tabs > li.active a{background: #fff;
+    border-top:solid 1px #eee;
+    border-left:solid 1px #eee;
+    border-right:solid 1px #eee;
+}
+.ti_gallery_pannel li{
+	width: 222px;
+	height: auto;
+	float: left;
+	margin: 0 20px 20px 0;
+}
+.ti_gallery_pannel li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.ti_gallery_pannel li a img {
+	width: 100%;
+	height: 180px;
+}
+.ti_gallery_pannel li a span {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+	font: normal 15px 'ProximaNova-Regular', Arial;
+	color: #fff;
+	padding: 20px 10px 10px 10px;
+	background: rgba(0,0,0,0);
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,1)));
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+	background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+	background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+}

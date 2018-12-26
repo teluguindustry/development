@@ -20,12 +20,18 @@ import { NewseditComponent } from "./admin/news/newsedit/newsedit.component";
 import { GallerydataComponent } from "./admin/gallery/gallerydata/gallerydata.component";
 import { GalleryaddComponent } from "./admin/gallery/galleryadd/galleryadd.component";
 import { GalleryeditComponent } from "./admin/gallery/galleryedit/galleryedit.component";
+import { NewsComponent } from "./website/news/news/news.component";
+import { DetailnewsComponent } from "./website/news/detailnews/detailnews.component";
+import { NowplayingdataComponent } from "./admin/nowplaying/nowplayingdata/nowplayingdata.component";
+import { NowplayingaddComponent } from "./admin/nowplaying/nowplayingadd/nowplayingadd.component";
+import { NowplayingeditComponent } from "./admin/nowplaying/nowplayingedit/nowplayingedit.component";
 
 import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'admin', component: LoginComponent},
   { path: 'profile', component: UserprofileComponent, canActivate:[AuthGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
@@ -46,6 +52,13 @@ const routes: Routes = [
   { path: 'gallery', component: GallerydataComponent, canActivate:[AuthGuard]},
   { path: 'addGallery', component: GalleryaddComponent, canActivate:[AuthGuard]},
   { path: 'editGallery/:id', component: GalleryeditComponent, canActivate:[AuthGuard]},
+
+  { path: 'allNowPlaying', component: NowplayingdataComponent, canActivate:[AuthGuard]},
+  { path: 'addNowPlaying', component: NowplayingaddComponent, canActivate:[AuthGuard]},
+  { path: 'editNowPlaying/:id', component: NowplayingeditComponent, canActivate:[AuthGuard]},
+
+  { path: 'movienews', component: NewsComponent},
+  { path: 'newsdetail/:id', component: DetailnewsComponent}
 ];
 
 @NgModule({

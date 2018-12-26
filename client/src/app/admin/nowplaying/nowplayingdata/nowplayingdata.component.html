@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head clearfix">
+                          <div class="pull-left">
+                              <h3 style="padding-top: 7px;">Now Playing</h3>
+                          </div>
+                          <div class="pull-right">
+                              <a routerLink="/addNowPlaying" class="btn btn-primary">Add Nowplaying Movies</a>
+                          </div>
+                        </div>
+                        <div class="module-body table">
+                          <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped display" width="100%">
+                            <thead>
+                              <tr>
+                                <th>Movies</th>
+                                <th>Settings</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="odd gradeX" *ngFor="let nowmovies of nowPlayingData">
+                                <td>
+                                    <tr *ngFor="let movie of nowmovies.movie">
+                                        {{movie.name}}
+                                    </tr>  
+                                </td>
+                                <td>
+                                    <a routerLink="/editNowPlaying/{{nowmovies._id}}" title="Edit Nowplaying"><i class="icon-edit"></i></a>
+                                    <!-- <a href="#" title="Delete News"><i class="icon-edit"></i></a> -->
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div><!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer> 

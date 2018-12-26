@@ -7,6 +7,7 @@ const ctrlCelebrityProfile = require('../controllers/celebrityprofile.controller
 const ctrlMovies = require('../controllers/movies.controller');
 const ctrlNews = require('../controllers/news.controller');
 const ctrlGallery = require('../controllers/gallery.controller');
+const ctrlNowPlaying = require('../controllers/nowplayingmovies.controller');
 
 
 const jwtHelper = require('../config/jwtHelper');
@@ -46,5 +47,10 @@ router.get('/getAllGallery', ctrlGallery.getAllGallery);
 router.get('/getGallery/:id', ctrlGallery.getGallery);
 router.post('/updateGallery', ctrlGallery.updateGallery);
 
+//Now playing
+router.post('/createNowPlaying', ctrlNowPlaying.saveData);
+router.get('/getAllNowPlaying', ctrlNowPlaying.getAllNowPlaying);
+router.get('/getNowPlaying/:id', ctrlNowPlaying.getNowPlaying);
+router.post('/updateNowPlaying', ctrlNowPlaying.updateNowPlaying);
 
 module.exports = router;

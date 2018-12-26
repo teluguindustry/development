@@ -36,7 +36,16 @@ import { NewsaddComponent } from './admin/news/newsadd/newsadd.component';
 import { GallerydataComponent } from './admin/gallery/gallerydata/gallerydata.component';
 import { GalleryaddComponent } from './admin/gallery/galleryadd/galleryadd.component';
 import { GalleryeditComponent } from './admin/gallery/galleryedit/galleryedit.component';
-
+import { NewsComponent } from "./website/news/news/news.component";
+import { DetailnewsComponent } from './website/news/detailnews/detailnews.component';
+import { WebsiteheaderComponent } from './website/websiteheader/websiteheader.component';
+import { WebsitefooterComponent } from './website/websitefooter/websitefooter.component';
+import { WebsiterightbarComponent } from './website/websiterightbar/websiterightbar.component';
+import { SidebarnewslistComponent } from './website/news/sidebarnewslist/sidebarnewslist.component';
+import { SidebargalleryComponent } from './website/gallery/sidebargallery/sidebargallery.component';
+import { NowplayingaddComponent } from './admin/nowplaying/nowplayingadd/nowplayingadd.component';
+import { NowplayingeditComponent } from './admin/nowplaying/nowplayingedit/nowplayingedit.component';
+import { NowplayingdataComponent } from './admin/nowplaying/nowplayingdata/nowplayingdata.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +73,17 @@ import { GalleryeditComponent } from './admin/gallery/galleryedit/galleryedit.co
     NewsaddComponent,
     GallerydataComponent,
     GalleryaddComponent,
-    GalleryeditComponent
+    GalleryeditComponent,
+    NewsComponent,
+    DetailnewsComponent,
+    WebsiteheaderComponent,
+    WebsitefooterComponent,
+    WebsiterightbarComponent,
+    SidebarnewslistComponent,
+    SidebargalleryComponent,
+    NowplayingaddComponent,
+    NowplayingeditComponent,
+    NowplayingdataComponent
   ],
   imports: [
     BrowserModule,
