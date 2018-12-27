@@ -25,6 +25,9 @@ import { DetailnewsComponent } from "./website/news/detailnews/detailnews.compon
 import { NowplayingdataComponent } from "./admin/nowplaying/nowplayingdata/nowplayingdata.component";
 import { NowplayingaddComponent } from "./admin/nowplaying/nowplayingadd/nowplayingadd.component";
 import { NowplayingeditComponent } from "./admin/nowplaying/nowplayingedit/nowplayingedit.component";
+import { UpcomingdataComponent } from "./admin/upcoming/upcomingdata/upcomingdata.component";
+import { UpcomingaddComponent } from "./admin/upcoming/upcomingadd/upcomingadd.component";
+import { UpcomingeditComponent } from "./admin/upcoming/upcomingedit/upcomingedit.component";
 
 import { AuthGuard } from './auth/auth.guard';
 
@@ -56,6 +59,9 @@ const routes: Routes = [
   { path: 'allNowPlaying', component: NowplayingdataComponent, canActivate:[AuthGuard]},
   { path: 'addNowPlaying', component: NowplayingaddComponent, canActivate:[AuthGuard]},
   { path: 'editNowPlaying/:id', component: NowplayingeditComponent, canActivate:[AuthGuard]},
+  { path: 'allUpcoming', component: UpcomingdataComponent, canActivate:[AuthGuard]},
+  { path: 'addUpcoming', component: UpcomingaddComponent, canActivate:[AuthGuard]},
+  { path: 'editUpcoming/:id', component: UpcomingeditComponent, canActivate:[AuthGuard]},
 
   { path: 'movienews', component: NewsComponent},
   { path: 'newsdetail/:id', component: DetailnewsComponent}

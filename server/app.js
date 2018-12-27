@@ -8,6 +8,7 @@ require('./models/movies.model');
 require('./models/news.model');
 require('./models/gallery.model');
 require('./models/nowplaying.model')
+require('./models/upcoming.model')
 
 const express = require('express');
 const bodyparser = require('body-parser');

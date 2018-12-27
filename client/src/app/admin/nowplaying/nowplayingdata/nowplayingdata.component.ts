@@ -10,6 +10,7 @@ import { NowplayingService } from '../../../shared/nowplaying/nowplaying.service
 export class NowplayingdataComponent implements OnInit {
 
   nowPlayingData;
+  nowPlayingDatalength;
   serverErrorMessages: string;
   constructor(private router: Router, private npd: NowplayingService) { }
 
@@ -17,6 +18,7 @@ export class NowplayingdataComponent implements OnInit {
     this.npd.getNowPlayingMovies().subscribe(
       res => {
         this.nowPlayingData = res['nowplaying'];
+        this.nowPlayingDatalength = res['nowplaying'].length;
       },
       err => {
         this.serverErrorMessages=err;

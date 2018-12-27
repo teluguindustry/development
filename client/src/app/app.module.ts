@@ -46,6 +46,9 @@ import { SidebargalleryComponent } from './website/gallery/sidebargallery/sideba
 import { NowplayingaddComponent } from './admin/nowplaying/nowplayingadd/nowplayingadd.component';
 import { NowplayingeditComponent } from './admin/nowplaying/nowplayingedit/nowplayingedit.component';
 import { NowplayingdataComponent } from './admin/nowplaying/nowplayingdata/nowplayingdata.component';
+import { UpcomingaddComponent } from './admin/upcoming/upcomingadd/upcomingadd.component';
+import { UpcomingdataComponent } from './admin/upcoming/upcomingdata/upcomingdata.component';
+import { UpcomingeditComponent } from './admin/upcoming/upcomingedit/upcomingedit.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +86,10 @@ import { NowplayingdataComponent } from './admin/nowplaying/nowplayingdata/nowpl
     SidebargalleryComponent,
     NowplayingaddComponent,
     NowplayingeditComponent,
-    NowplayingdataComponent
+    NowplayingdataComponent,
+    UpcomingaddComponent,
+    UpcomingdataComponent,
+    UpcomingeditComponent
   ],
   imports: [
     BrowserModule,

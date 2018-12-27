@@ -9,10 +9,10 @@
                     <div class="module">
                         <div class="module-head clearfix">
                           <div class="pull-left">
-                              <h3 style="padding-top: 7px;">Now Playing</h3>
+                              <h3 style="padding-top: 7px;">Upcoming Movies</h3>
                           </div>
-                          <div class="pull-right" *ngIf="nowPlayingDatalength === 0">
-                              <a routerLink="/addNowPlaying" class="btn btn-primary">Add Nowplaying Movies</a>
+                          <div class="pull-right" *ngIf="upcomingDatalength === 0">
+                              <a routerLink="/addUpcoming" class="btn btn-primary">Add Upcoming Movies</a>
                           </div>
                         </div>
                         <div class="module-body table">
@@ -24,14 +24,14 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr class="odd gradeX" *ngFor="let nowmovies of nowPlayingData">
+                              <tr class="odd gradeX" *ngFor="let comingmovies of upComingData">
                                 <td>
-                                    <tr *ngFor="let movie of nowmovies.movie">
+                                    <tr *ngFor="let movie of comingmovies.movie">
                                         {{movie.name}}
                                     </tr>  
                                 </td>
                                 <td>
-                                    <a routerLink="/editNowPlaying/{{nowmovies._id}}" title="Edit Nowplaying"><i class="icon-edit"></i></a>
+                                    <a routerLink="/editUpcoming/{{comingmovies._id}}" title="Edit Upcoming"><i class="icon-edit"></i></a>
                                     <!-- <a href="#" title="Delete News"><i class="icon-edit"></i></a> -->
                                 </td>
                               </tr>
