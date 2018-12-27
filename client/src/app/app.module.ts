@@ -49,6 +49,9 @@ import { NowplayingdataComponent } from './admin/nowplaying/nowplayingdata/nowpl
 import { UpcomingaddComponent } from './admin/upcoming/upcomingadd/upcomingadd.component';
 import { UpcomingdataComponent } from './admin/upcoming/upcomingdata/upcomingdata.component';
 import { UpcomingeditComponent } from './admin/upcoming/upcomingedit/upcomingedit.component';
+import { AddreviewComponent } from './admin/moviereviews/addreview/addreview.component';
+import { ReviewdataComponent } from './admin/moviereviews/reviewdata/reviewdata.component';
+import { EditreviewComponent } from './admin/moviereviews/editreview/editreview.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +92,10 @@ import { UpcomingeditComponent } from './admin/upcoming/upcomingedit/upcomingedi
     NowplayingdataComponent,
     UpcomingaddComponent,
     UpcomingdataComponent,
-    UpcomingeditComponent
+    UpcomingeditComponent,
+    AddreviewComponent,
+    ReviewdataComponent,
+    EditreviewComponent
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,9 @@ import { NowplayingeditComponent } from "./admin/nowplaying/nowplayingedit/nowpl
 import { UpcomingdataComponent } from "./admin/upcoming/upcomingdata/upcomingdata.component";
 import { UpcomingaddComponent } from "./admin/upcoming/upcomingadd/upcomingadd.component";
 import { UpcomingeditComponent } from "./admin/upcoming/upcomingedit/upcomingedit.component";
+import { ReviewdataComponent } from "./admin/moviereviews/reviewdata/reviewdata.component";
+import { AddreviewComponent } from "./admin/moviereviews/addreview/addreview.component";
+import { EditreviewComponent } from "./admin/moviereviews/editreview/editreview.component";
 
 import { AuthGuard } from './auth/auth.guard';
 
@@ -55,13 +58,15 @@ const routes: Routes = [
   { path: 'gallery', component: GallerydataComponent, canActivate:[AuthGuard]},
   { path: 'addGallery', component: GalleryaddComponent, canActivate:[AuthGuard]},
   { path: 'editGallery/:id', component: GalleryeditComponent, canActivate:[AuthGuard]},
-
   { path: 'allNowPlaying', component: NowplayingdataComponent, canActivate:[AuthGuard]},
   { path: 'addNowPlaying', component: NowplayingaddComponent, canActivate:[AuthGuard]},
   { path: 'editNowPlaying/:id', component: NowplayingeditComponent, canActivate:[AuthGuard]},
   { path: 'allUpcoming', component: UpcomingdataComponent, canActivate:[AuthGuard]},
   { path: 'addUpcoming', component: UpcomingaddComponent, canActivate:[AuthGuard]},
   { path: 'editUpcoming/:id', component: UpcomingeditComponent, canActivate:[AuthGuard]},
+  { path: 'allReviews', component: ReviewdataComponent, canActivate:[AuthGuard]},
+  { path: 'addReview', component: AddreviewComponent, canActivate:[AuthGuard]},
+  { path: 'editReview/:id', component: EditreviewComponent, canActivate:[AuthGuard]},
 
   { path: 'movienews', component: NewsComponent},
   { path: 'newsdetail/:id', component: DetailnewsComponent}

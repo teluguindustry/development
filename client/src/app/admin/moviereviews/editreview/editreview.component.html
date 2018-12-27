@@ -1,0 +1,55 @@
+
+<app-header></app-header>
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <app-leftnav></app-leftnav>
+            <!-- Content Here-->
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head">
+                          <h3>Edit Movie Review</h3>
+                        </div>
+                        <div class="module-body">
+                            <br />
+                            <form class="form-horizontal row-fluid" #movieReviewEditForm="ngForm" (ngSubmit)="movieReviewEditForm.valid && onSubmit(movieReviewEditForm)" enctype="multipart/form-data">
+                              
+                              <div class="control-group">
+                                <label class="control-label">Movie</label>
+                                <div class="controls">
+                                  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="reviewEditData._id">
+                                  <ng-multiselect-dropdown
+                                    [placeholder]="'Search for movie'"
+                                    [data]="movies"
+                                    [name]="movie"
+                                    [(ngModel)]="movie"
+                                    [settings]="dropdownSettings"
+                                    class="span7"
+                                  >
+                                  </ng-multiselect-dropdown>
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <label class="control-label">Rating</label>
+                                <div class="controls">
+                                  <input type="text" name="rating" class="span8" #rating="ngModel" [(ngModel)]="reviewEditData.rating" required>
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <div class="controls">
+                                  <button type="submit" class="btn">Submit Form</button>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                      </div><!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/. Content Here-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<app-footer></app-footer>

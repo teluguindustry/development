@@ -9,6 +9,7 @@ const ctrlNews = require('../controllers/news.controller');
 const ctrlGallery = require('../controllers/gallery.controller');
 const ctrlNowPlaying = require('../controllers/nowplayingmovies.controller');
 const ctrlUpcoming = require('../controllers/upcomingmovies.controller');
+const ctrlMovieReview = require('../controllers/moviereview.controller');
 
 
 const jwtHelper = require('../config/jwtHelper');
@@ -59,5 +60,11 @@ router.post('/createUpcoming', ctrlUpcoming.saveData);
 router.get('/getAllUpcoming', ctrlUpcoming.getAllUpComing);
 router.get('/getUpComing/:id', ctrlUpcoming.getUpComing);
 router.post('/updateUpComing', ctrlUpcoming.updateUpComing);
+
+//Movie Reviews
+router.post('/createMovieReview', ctrlMovieReview.saveData);
+router.get('/getAllMovieReviews', ctrlMovieReview.getAllMovieReviews);
+router.get('/getMovieReview/:id', ctrlMovieReview.getMovieReview);
+router.post('/updateMovieReview', ctrlMovieReview.updateMovieReview);
 
 module.exports = router;
