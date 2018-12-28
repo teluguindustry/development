@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { NewsService } from '../../../shared/news/news.service';
+import { environment } from "../../../../environments/environment";
 
 @Component({
   selector: 'app-detailnews',
@@ -12,7 +13,7 @@ export class DetailnewsComponent implements OnInit {
   newsData;
   serverErrorMessages: string;
   imageUrl: string = '';
-  uris="http://localhost:3000/uploads/news/";
+  uris=environment.baseUrl+"/uploads/news/";
   constructor(private router: Router, private ns: NewsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

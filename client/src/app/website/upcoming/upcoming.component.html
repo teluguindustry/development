@@ -1,0 +1,5 @@
+<link href="../../../styles/css/teluguindustry.css" rel="stylesheet">
+<div class="ti-title"><h2>Upcoming</h2></div>
+<ul class="ti_list" *ngFor="let comingmovies of upComingData">
+    <li *ngFor="let movie of comingmovies.movie"><a href="" title="{{movie.name}}">{{movie.name}}</a></li>
+</ul>

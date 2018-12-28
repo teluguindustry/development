@@ -26,6 +26,7 @@ export class NowplayingService {
   constructor(private http: HttpClient) { 
     this.fileUploadHeaders();
   }
+  
   getNowPlayingMovies() {
     return this.http.get(environment.apiBaseUrl + '/getAllNowPlaying');
   }
