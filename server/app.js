@@ -10,6 +10,7 @@ require('./models/gallery.model');
 require('./models/nowplaying.model')
 require('./models/upcoming.model')
 require('./models/reviews.model')
+require('./models/pramotions.model')
 
 const express = require('express');
 const bodyparser = require('body-parser');

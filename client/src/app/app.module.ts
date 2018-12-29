@@ -55,6 +55,11 @@ import { EditreviewComponent } from './admin/moviereviews/editreview/editreview.
 import { NowplayingComponent } from './website/nowplaying/nowplaying.component';
 import { UpcomingComponent } from './website/upcoming/upcoming.component';
 import { MoviereviewsComponent } from './website/moviereviews/moviereviews.component';
+import { MoviedetailsComponent } from './website/moviedetails/moviedetails.component';
+import { PramotionsdataComponent } from './admin/pramotions/pramotionsdata/pramotionsdata.component';
+import { AddpramotionsComponent } from './admin/pramotions/addpramotions/addpramotions.component';
+import { EditpramotionsComponent } from './admin/pramotions/editpramotions/editpramotions.component';
+import { PramotionsComponent } from './website/pramotions/pramotions/pramotions.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +106,12 @@ import { MoviereviewsComponent } from './website/moviereviews/moviereviews.compo
     EditreviewComponent,
     NowplayingComponent,
     UpcomingComponent,
-    MoviereviewsComponent
+    MoviereviewsComponent,
+    MoviedetailsComponent,
+    PramotionsdataComponent,
+    AddpramotionsComponent,
+    EditpramotionsComponent,
+    PramotionsComponent
   ],
   imports: [
     BrowserModule,

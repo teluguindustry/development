@@ -10,6 +10,7 @@ const ctrlGallery = require('../controllers/gallery.controller');
 const ctrlNowPlaying = require('../controllers/nowplayingmovies.controller');
 const ctrlUpcoming = require('../controllers/upcomingmovies.controller');
 const ctrlMovieReview = require('../controllers/moviereview.controller');
+const ctrlPramotions = require('../controllers/pramotions.controller');
 
 
 const jwtHelper = require('../config/jwtHelper');
@@ -35,6 +36,7 @@ router.post('/updateProfile', ctrlCelebrityProfile.updateProfile);
 router.post('/createMovie', ctrlMovies.saveData);
 router.get('/getMovies', ctrlMovies.getMovies);
 router.get('/getMovie/:id', ctrlMovies.getMovie);
+router.get('/getMovieDetails/:id', ctrlMovies.getMovieDetails);
 router.post('/updateMovie', ctrlMovies.updateMovie);
 
 //News
@@ -66,5 +68,11 @@ router.post('/createMovieReview', ctrlMovieReview.saveData);
 router.get('/getAllMovieReviews', ctrlMovieReview.getAllMovieReviews);
 router.get('/getMovieReview/:id', ctrlMovieReview.getMovieReview);
 router.post('/updateMovieReview', ctrlMovieReview.updateMovieReview);
+
+//Pramotions
+router.post('/createPramotion', ctrlPramotions.saveData);
+router.get('/getAllPramotion', ctrlPramotions.getAllPramotions);
+router.get('/getPramotion/:id', ctrlPramotions.getPramotion);
+router.post('/updatePramotion', ctrlPramotions.updatePramotions);
 
 module.exports = router;

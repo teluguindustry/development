@@ -23,9 +23,11 @@ const movieSchema = new mongoose.Schema({
     story:{
         type:Array
     },
-    starring:{
-        type:Array
-    },
+    starring:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'CelebrityProfile',
+        required: true
+    }],
     music:{
         type:Array
     },

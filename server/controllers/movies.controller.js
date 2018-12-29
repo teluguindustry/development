@@ -70,6 +70,17 @@ module.exports.getMovie = (req, res) =>{
     });
 };
 
+module.exports.getMovieDetails = (req, res) =>{
+    Movie.findById(req.params.id).populate('starring', ['firstName', 'lastName'])
+    .populate('movie', 'name')
+    .exec(function(err, movie){
+        if (!movie)
+            return res.status(404).json({ status: false, message: 'Records not found.' });
+        else
+            return res.status(200).json({ status: true, movie : movie });
+    })
+};
+
 module.exports.updateMovie = function (req, res, next) {
     var poster = null;
     upload(req, res,(error) => {

@@ -31,7 +31,10 @@ import { UpcomingeditComponent } from "./admin/upcoming/upcomingedit/upcomingedi
 import { ReviewdataComponent } from "./admin/moviereviews/reviewdata/reviewdata.component";
 import { AddreviewComponent } from "./admin/moviereviews/addreview/addreview.component";
 import { EditreviewComponent } from "./admin/moviereviews/editreview/editreview.component";
-
+import { MoviedetailsComponent } from "./website/moviedetails/moviedetails.component";
+import { AddpramotionsComponent } from "./admin/pramotions/addpramotions/addpramotions.component";
+import { EditpramotionsComponent } from "./admin/pramotions/editpramotions/editpramotions.component";
+import { PramotionsdataComponent } from "./admin/pramotions/pramotionsdata/pramotionsdata.component";
 import { AuthGuard } from './auth/auth.guard';
 
 
@@ -67,9 +70,13 @@ const routes: Routes = [
   { path: 'allReviews', component: ReviewdataComponent, canActivate:[AuthGuard]},
   { path: 'addReview', component: AddreviewComponent, canActivate:[AuthGuard]},
   { path: 'editReview/:id', component: EditreviewComponent, canActivate:[AuthGuard]},
+  { path: 'allPramotions', component: PramotionsdataComponent, canActivate:[AuthGuard]},
+  { path: 'addPramotions', component: AddpramotionsComponent, canActivate:[AuthGuard]},
+  { path: 'editPramotions/:id', component: EditpramotionsComponent, canActivate:[AuthGuard]},
 
   { path: 'movienews', component: NewsComponent},
-  { path: 'newsdetail/:id', component: DetailnewsComponent}
+  { path: 'newsdetail/:id', component: DetailnewsComponent},
+  { path: 'movieDetails/:id', component: MoviedetailsComponent}
 ];
 
 @NgModule({

@@ -1,14 +1,24 @@
 <link href="../../../styles/css/teluguindustry.css" rel="stylesheet">
 <div class="ti-title"><h2>Movie Reviews</h2></div>
-<div class="today_release" >
-    <a href=""><img src="styles/images/review.jpg" alt="Robo 2.0 Movie Review"><p>Robo 2.0</p></a>
+<div class="today_release" *ngFor="let moviereview of movieReviewData | slice:0:1; let i = index">
+    <a routerLink="/movieDetails/{{moviereview.movie._id}}">
+        <img src="{{uris+moviereview.movie.poster}}" alt="">
+        <p>{{moviereview.movie.name}}</p>
+        <p>Rating: <span>{{moviereview.rating}}</span></p>
+    </a>
 </div>
 <ul class="reviews_li">
-    <li *ngFor="let moviereview of movieReviewData; let i = index">
-        <div class="col ti_review1"><a href="" title="{{moviereview.movie.name}}"><img src="{{uris+moviereview.movie.poster}}" alt=""></a></div>
+    <li *ngFor="let moviereview of movieReviewData | slice:1:3; let i = index">
+        <div class="col ti_review1">
+            <a routerLink="/movieDetails/{{moviereview.movie._id}}" title="{{moviereview.movie.name}}">
+                <img src="{{uris+moviereview.movie.poster}}" alt="">
+            </a>
+        </div>
         <div class="col ti_review2">
-        <a href=""><p>{{moviereview.movie.name}}</p></a>
-        <p>Rating: <span>{{moviereview.rating}}</span></p>
+            <a routerLink="/movieDetails/{{moviereview.movie._id}}">
+                <p>{{moviereview.movie.name}}</p>
+            </a>
+            <p>Rating: <span>{{moviereview.rating}}</span></p>
         </div>
     </li>
 </ul>

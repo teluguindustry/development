@@ -9,12 +9,11 @@
                   <div class="row">
                       <ul class="breadcrumb">
                           <li class="breadcrumb-item"><a href="#">Home</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Movie News</li>
+                          <li class="breadcrumb-item active" aria-current="page">Movie Details</li>
                       </ul>
                       <div class="article">
                           <div class="ti_newstitle">
-                              <h1 title="{{ newsData?.title }}">{{ newsData?.title }}</h1>
-                              <p class="ti_metatitles">{{ newsData?.createdAt }}</p>
+                              <h1 title="{{ movieData?.name }}">{{ movieData?.name }}</h1>
                               <div class="social">
                                   <a href="#"><span class="ti_facebook" displaytext="Facebook"></span></a>
                                   <a href="#"><span class="ti_twitter" displaytext="Tweet"></span></a>
@@ -22,9 +21,9 @@
                               </div>                                
                           </div>
                           <div class="article_img">
-                              <img [src]="imageUrl" alt="{{ newsData?.title }}" style="width:668px;height:446px">
+                              <img [src]="imageUrl" alt="{{ movieData?.name }}" style="width:668px;height:446px">
                               <p> </p>
-                              <p>{{ newsData?.description }}</p>
+                              <p>{{ movieData?.description }}</p>
                               <div class="ti_ad">
                                   <img src="styles/images/review.jpg" alt="">
                               </div>

@@ -53,6 +53,10 @@ export class MovieService {
     return this.http.get(environment.apiBaseUrl + '/getMovie/'+id);
   }
 
+  getMovieDetails(id) {
+    return this.http.get(environment.apiBaseUrl + '/getMovieDetails/'+id);
+  }
+
   addMovie(movieDetails, fileToUpload: File, starring, director, producer, music) {
     const formData = new FormData();
     formData.append('name', movieDetails.name);
