@@ -58,7 +58,7 @@ module.exports.getMovies = (req, res, next) =>{
             else
                 return res.status(200).json({ status: true, movies : movie });
         }
-    );
+    ).sort({createdAt: 'desc'});
 }
 
 module.exports.getMovie = (req, res) =>{

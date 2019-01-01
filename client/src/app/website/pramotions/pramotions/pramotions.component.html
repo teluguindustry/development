@@ -1,7 +1,9 @@
 <link href="../../../styles/css/teluguindustry.css" rel="stylesheet">
 <div class="ti-title"><h2>We Promote</h2></div>
 <ul *ngFor="let pramotion of pramotionData">
-    <li *ngFor="let movie of pramotion.movie">
-        <a routerLink="/movieDetails/{{movie._id}}"><img src="{{uris+movie.poster}}" alt=""></a>
+    <li *ngFor="let movie of pramotion.movie" style="margin-bottom:10px;">
+        <a routerLink="/movieDetails/{{movie._id}}">
+            <img src="{{uris+movie.poster}}" alt="" width="350" height="350">
+        </a>
     </li>
 </ul> 

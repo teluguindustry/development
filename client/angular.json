@@ -38,7 +38,7 @@
               "src/styles/scripts/flot/jquery.flot.resize.js",
               "src/styles/scripts/datatables/jquery.dataTables.js",
               "src/styles/scripts/common.js",
-              "src/styles/scripts/tag-it.js"
+              "src/styles/scripts/jquery.tinycarousel.min.js"
             ]
           },
           "configurations": {

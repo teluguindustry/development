@@ -37,7 +37,7 @@ module.exports.saveData = (req, res, next) => {
 };
 
 module.exports.getAllGallery = (req, res, next) =>{
-    Gallery.find({}).populate('starring', ['firstName', 'lastName'])
+    Gallery.find({}).sort({createdAt: 'desc'}).populate('starring', ['firstName', 'lastName'])
     .populate('category', 'categoryName')
     .exec(function(err, gallery){
         if (!gallery)

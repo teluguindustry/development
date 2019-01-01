@@ -5,7 +5,11 @@ const pramotionsSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Movie',
         required: true
-    }]
+    }],
+    createdAt:{
+        type:Date,
+        default: Date.now
+    },
 });
 
 mongoose.model('Pramotions', pramotionsSchema);

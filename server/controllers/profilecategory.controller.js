@@ -23,7 +23,7 @@ module.exports.getCategories = (req, res, next) =>{
             else
                 return res.status(200).json({ status: true, profileCategory : profilecategory });
         }
-    );
+    ).sort({createdAt: 'desc'});
 }
 
 module.exports.getCategory = (req, res) =>{

@@ -24,7 +24,7 @@ module.exports.saveData = (req, res, next) => {
 }
 
 module.exports.getAllPramotions = (req, res, next) =>{
-    Pramotions.find({}).populate('movie', ['name', 'poster'])
+    Pramotions.find({}).sort({createdAt: 'desc'}).populate('movie', ['name', 'poster'])
     .exec(function(err, result){
         if (!result)
             return res.status(404).json({ status: false, message: 'Records not found.' });

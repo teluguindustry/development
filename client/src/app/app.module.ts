@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 //components
 import { AppRoutingModule } from './app-routing.module';
@@ -118,7 +119,8 @@ import { PramotionsComponent } from './website/pramotions/pramotions/pramotions.
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    NgImageSliderModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -44,7 +44,7 @@ module.exports.getProfiles = (req, res, next) =>{
             else
                 return res.status(200).json({ status: true, celebrityProfile : celebrityprofile });
         }
-    );
+    ).sort({createdAt: 'desc'});
 }
 
 module.exports.getProfile = (req, res, next) =>{

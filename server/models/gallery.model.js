@@ -14,7 +14,12 @@ var gallerySchema = new Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'CelebrityProfile',
       required: true
-  }]
+  }],
+  createdAt:{
+      type:Date,
+      default: Date.now
+  },
+
 });
 
 mongoose.model('Gallery', gallerySchema);

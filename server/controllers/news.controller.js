@@ -32,7 +32,7 @@ module.exports.saveData = (req, res, next) => {
 }
 
 module.exports.getAllNews = (req, res, next) =>{
-    News.find({}).populate('relatedcelebrity', ['firstName', 'lastName'])
+    News.find({}).sort({createdAt: 'desc'}).populate('relatedcelebrity', ['firstName', 'lastName'])
     .populate('movie', 'name')
     .exec(function(err, news){
         if (!news)

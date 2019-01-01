@@ -25,7 +25,7 @@ module.exports.saveData = (req, res, next) => {
 }
 
 module.exports.getAllMovieReviews = (req, res, next) =>{
-    MovieReview.find({}).populate('movie', ['name', 'poster'])
+    MovieReview.find({}).sort({createdAt: 'desc'}).populate('movie', ['name', 'poster'])
     .exec(function(err, result){
         if (!result)
             return res.status(404).json({ status: false, message: 'Records not found.' });

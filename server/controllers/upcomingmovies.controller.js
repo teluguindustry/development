@@ -24,7 +24,7 @@ module.exports.saveData = (req, res, next) => {
 }
 
 module.exports.getAllUpComing = (req, res, next) =>{
-    UpComingMovie.find({}).populate('movie', 'name')
+    UpComingMovie.find({}).sort({createdAt: 'desc'}).populate('movie', 'name')
     .exec(function(err, result){
         if (!result)
             return res.status(404).json({ status: false, message: 'Records not found.' });
